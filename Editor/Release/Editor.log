@@ -1,0 +1,23 @@
+﻿  CompoundShape.cpp
+  Editor.cpp
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\Editor.cpp(164,20): warning C4018: '<': signed/unsigned mismatch
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\Editor.cpp(204,23): warning C4018: '<': signed/unsigned mismatch
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\Editor.cpp(206,89): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\Editor.cpp(206,68): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\Editor.cpp(230,23): warning C4018: '<': signed/unsigned mismatch
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\Editor.cpp(243,23): warning C4018: '<': signed/unsigned mismatch
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\Editor.cpp(291,21): warning C4018: '<': signed/unsigned mismatch
+  Generating code
+  18 of 184 functions ( 9.8%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    2 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  Editor.vcxproj -> D:\STUDYIENG\5semestr\OOD\Editor\Release\Editor.exe
