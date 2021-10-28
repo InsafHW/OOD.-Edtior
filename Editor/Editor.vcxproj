@@ -157,10 +157,12 @@
     <ClCompile Include="IShape.cpp" />
     <ClCompile Include="OutlineDecorator.cpp" />
     <ClCompile Include="Rectangle.cpp" />
+    <ClCompile Include="Singleton.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Circle.h" />
     <ClInclude Include="CompoundShape.h" />
+    <ClInclude Include="Singleton.h" />
     <ClInclude Include="IShape.h" />
     <ClInclude Include="OutlineDecorator.h" />
     <ClInclude Include="Rectangle.h" />
