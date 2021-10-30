@@ -32,16 +32,30 @@ public:
 
 	void Move(float x, float y)
 	{
-		std::cout << "x = " << x << "; y = " << y << std::endl;
-		for (auto it = m_shapes.begin(); it != m_shapes.end(); it++)
+
+		if (x == m_prevX && y == m_prevY)
 		{
-			(*it)->SetPosition(x, y);
-			//(*it)->SetPosition((*it)->GetGlobalBounds().left - x, (*it)->GetGlobalBounds().top - y);
+			return;
 		}
+		if (m_prevX != -100000 && m_prevY != -100000)
+		{
+			for (auto it = m_shapes.begin(); it != m_shapes.end(); it++)
+			{
+				(*it)->Move(x - m_prevX, y - m_prevY);
+			}
+		}
+
+		m_prevX = x;
+		m_prevY = y;
 	};
 
 	void Draw(sf::RenderWindow* window)
 	{
+		auto rect = GetBorder();
+		rect.setFillColor(sf::Color::Transparent);
+		rect.setOutlineThickness(2);
+		rect.setOutlineColor(sf::Color::Green);
+		window->draw(rect);
 		for (auto it = m_shapes.begin(); it != m_shapes.end(); it++)
 		{
 			(*it)->Draw(window);
@@ -50,81 +64,57 @@ public:
 
 	bool IsMouseInGroup(float x, float y)
 	{
+		return GetGlobalBounds().contains(x, y);
+	};
+
+	sf::RectangleShape GetBorder()
+	{
+		// find max left x and max right y
+
+		int minX = 100000;
+		int maxX = 0;
+		int maxY = 0;
+		int minY = 100000;
+
 		for (auto it = m_shapes.begin(); it != m_shapes.end(); it++)
 		{
-			if ((*it)->GetGlobalBounds().contains(x, y)) {
-				return true;
-			};
+			auto bounds = (*it)->GetGlobalBounds();
+			if (bounds.left + bounds.width > maxX)
+			{
+				maxX = bounds.left + bounds.width;
+			}
+			if (bounds.left < minX)
+			{
+				minX = bounds.left;
+			}
+			if (bounds.top + bounds.height > maxY)
+			{
+				maxY = bounds.top + bounds.height;
+			}
+			if (bounds.top < minY)
+			{
+				minY = bounds.top;
+			}
 		}
-		return false;
+
+		sf::RectangleShape rect(sf::Vector2f(maxX - minX, maxY - minY));
+		rect.setPosition(minX, minY);
+		return rect;
 	};
 
 	sf::FloatRect GetGlobalBounds()
 	{
-		// find max left x and max right y
-		int minX = 100000;
-		int maxX = 0;
-		int maxY = 0;
-		int minY = 100000;
-
-		for (auto it = m_shapes.begin(); it != m_shapes.end(); it++)
-		{
-			if ((*it)->GetGlobalBounds().left + (*it)->GetGlobalBounds().width > maxX)
-			{
-				maxX = (*it)->GetGlobalBounds().left + (*it)->GetGlobalBounds().width;
-			}
-			if ((*it)->GetGlobalBounds().left < minX)
-			{
-				minX = (*it)->GetGlobalBounds().left;
-			}
-			if ((*it)->GetGlobalBounds().top + (*it)->GetGlobalBounds().height > maxY)
-			{
-				maxY = (*it)->GetGlobalBounds().top + (*it)->GetGlobalBounds().height;
-			}
-			if ((*it)->GetGlobalBounds().top < minY)
-			{
-				minY = (*it)->GetGlobalBounds().top;
-			}
-		}
-
-		sf::RectangleShape rect(sf::Vector2f(maxX - minX, maxY - minY));
-		rect.setPosition(minX, minY);
-		return rect.getGlobalBounds();
+		return GetBorder().getGlobalBounds();
 	};
 
 	sf::Vector2f GetOrigin()
 	{
-		int minX = 100000;
-		int maxX = 0;
-		int maxY = 0;
-		int minY = 100000;
-
-		for (auto it = m_shapes.begin(); it != m_shapes.end(); it++)
-		{
-			if ((*it)->GetGlobalBounds().left + (*it)->GetGlobalBounds().width > maxX)
-			{
-				maxX = (*it)->GetGlobalBounds().left + (*it)->GetGlobalBounds().width;
-			}
-			if ((*it)->GetGlobalBounds().left < minX)
-			{
-				minX = (*it)->GetGlobalBounds().left;
-			}
-			if ((*it)->GetGlobalBounds().top + (*it)->GetGlobalBounds().height > maxY)
-			{
-				maxY = (*it)->GetGlobalBounds().top + (*it)->GetGlobalBounds().height;
-			}
-			if ((*it)->GetGlobalBounds().top < minY)
-			{
-				minY = (*it)->GetGlobalBounds().top;
-			}
-		}
-
-		sf::RectangleShape rect(sf::Vector2f(maxX - minX, maxY - minY));
-		rect.setPosition(minX, minY);
-		return rect.getOrigin();
+		return GetBorder().getOrigin();
 	};
 
 private:
 	std::list<IShape*> m_shapes;
+	float m_prevX = -100000;
+	float m_prevY = -100000;
 };
 

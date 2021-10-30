@@ -14,8 +14,13 @@ public:
 	bool IsSelected() override;
 	void Select() override;
 	void UnSelect() override;
+	void Move(float x, float y) override;
+	bool IsPartOfCompound() override;
+	void SetIsPartOfCompound() override;
+	void UnsetIsPartOfCompound() override;
 private:
 	sf::CircleShape m_circle;
 	bool m_isSelected = false;
+	bool m_isPartOfCompound = false;
 };
 

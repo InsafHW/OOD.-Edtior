@@ -1,68 +1,69 @@
-﻿  Editor.cpp
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\CompoundShape.h(74,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+﻿  CompoundShape.cpp
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\CompoundShape.h(88,24): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\CompoundShape.h(78,36): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\CompoundShape.h(92,18): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\CompoundShape.h(82,41): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\CompoundShape.h(96,23): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\CompoundShape.h(86,36): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\CompoundShape.h(100,18): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\CompoundShape.h(90,58): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\CompoundShape.h(104,58): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\CompoundShape.h(90,45): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\CompoundShape.h(104,45): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\CompoundShape.h(91,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\CompoundShape.h(91,20): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\CompoundShape.h(106,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\CompoundShape.h(105,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\CompoundShape.h(105,20): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Editor.cpp
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\CompoundShape.h(88,24): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\CompoundShape.h(110,36): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\CompoundShape.h(92,18): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\CompoundShape.h(114,41): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\CompoundShape.h(96,23): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\CompoundShape.h(118,36): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\CompoundShape.h(100,18): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\CompoundShape.h(122,58): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\CompoundShape.h(104,58): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\CompoundShape.h(122,45): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\CompoundShape.h(104,45): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\CompoundShape.h(123,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\CompoundShape.h(123,20): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\CompoundShape.h(105,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\CompoundShape.h(105,20): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 D:\STUDYIENG\5semestr\OOD\Editor\Editor\Singleton.h(49,23): warning C4018: '<': signed/unsigned mismatch
 D:\STUDYIENG\5semestr\OOD\Editor\Editor\Singleton.h(51,92): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
@@ -80,21 +81,73 @@ D:\STUDYIENG\5semestr\OOD\Editor\Editor\Singleton.h(122,31): warning C4244: 'arg
 D:\STUDYIENG\5semestr\OOD\Editor\Editor\Singleton.h(124,28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 D:\STUDYIENG\5semestr\OOD\Editor\Editor\Singleton.h(124,18): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 D:\STUDYIENG\5semestr\OOD\Editor\Editor\Singleton.h(135,21): warning C4018: '<': signed/unsigned mismatch
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\Editor.cpp(425,82): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\Editor.cpp(91,82): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\Editor.cpp(425,61): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\Editor.cpp(91,61): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\Editor.cpp(466,70): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\Editor.cpp(466,49): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\Editor.cpp(132,70): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\Editor.cpp(132,49): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\Editor.cpp(209,70): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\Editor.cpp(209,62): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Singleton.cpp
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\CompoundShape.h(88,24): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\CompoundShape.h(92,18): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\CompoundShape.h(96,23): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\CompoundShape.h(100,18): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\CompoundShape.h(104,58): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\CompoundShape.h(104,45): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\CompoundShape.h(105,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\CompoundShape.h(105,20): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\Singleton.h(49,23): warning C4018: '<': signed/unsigned mismatch
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\Singleton.h(51,92): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\Singleton.h(51,69): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\Singleton.h(84,23): warning C4018: '<': signed/unsigned mismatch
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\Singleton.h(122,41): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\Singleton.h(122,31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\Singleton.h(124,28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\Singleton.h(124,18): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\Singleton.h(135,21): warning C4018: '<': signed/unsigned mismatch
   Generating code
-  18 of 263 functions ( 6.8%) were compiled, the rest were copied from previous compilation.
-    2 functions were new in current compilation
-    8 functions had inline decision re-evaluated but remain unchanged
+  2 of 275 functions ( 0.7%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   Editor.vcxproj -> D:\STUDYIENG\5semestr\OOD\Editor\Release\Editor.exe

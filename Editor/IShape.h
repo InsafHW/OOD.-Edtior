@@ -13,5 +13,9 @@ public:
 	virtual bool IsSelected() = 0;
 	virtual void Select() = 0;
 	virtual void UnSelect() = 0;
+	virtual void Move(float x, float y) = 0;
+	virtual bool IsPartOfCompound() = 0;
+	virtual void SetIsPartOfCompound() = 0;
+	virtual void UnsetIsPartOfCompound() = 0;
 };
 

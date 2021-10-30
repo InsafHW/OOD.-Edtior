@@ -53,3 +53,23 @@ void Rectangle::UnSelect()
 {
 	m_isSelected = false;
 }
+
+void Rectangle::Move(float x, float y)
+{
+	m_rectangle.move(x, y);
+}
+
+bool Rectangle::IsPartOfCompound()
+{
+	return m_isPartOfCompound;
+}
+
+void Rectangle::SetIsPartOfCompound()
+{
+	m_isPartOfCompound = true;
+}
+
+void Rectangle::UnsetIsPartOfCompound()
+{
+	m_isPartOfCompound = false;
+}

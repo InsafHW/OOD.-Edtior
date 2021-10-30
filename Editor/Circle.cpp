@@ -50,3 +50,23 @@ void Circle::UnSelect()
 {
 	m_isSelected = false;
 }
+
+void Circle::Move(float x, float y)
+{
+	m_circle.move(x, y);
+}
+
+bool Circle::IsPartOfCompound()
+{
+	return m_isPartOfCompound;
+}
+
+void Circle::SetIsPartOfCompound()
+{
+	m_isPartOfCompound = true;
+}
+
+void Circle::UnsetIsPartOfCompound()
+{
+	m_isPartOfCompound = false;
+}

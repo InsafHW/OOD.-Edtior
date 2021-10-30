@@ -17,7 +17,7 @@ public:
 	{
 		m_shape->Draw(window);
 
-		if (m_shape->IsSelected())
+		if (m_shape->IsSelected() && !m_shape->IsPartOfCompound())
 		{
 			// draw outline
 			sf::RectangleShape rect(sf::Vector2f(m_shape->GetGlobalBounds().width, m_shape->GetGlobalBounds().height));
@@ -27,6 +27,21 @@ public:
 			rect.setPosition(m_shape->GetGlobalBounds().left, m_shape->GetGlobalBounds().top);
 			window->draw(rect);
 		}
+	};
+
+	bool IsPartOfCompound() override
+	{
+		return m_shape->IsPartOfCompound();
+	};
+
+	void SetIsPartOfCompound() override
+	{
+		m_shape->SetIsPartOfCompound();
+	};
+
+	void UnsetIsPartOfCompound() override
+	{
+		m_shape->UnsetIsPartOfCompound();
 	};
 
 	OutlineDecorator(IShape* shape)
@@ -57,6 +72,10 @@ public:
 	{
 		m_shape->UnSelect();
 	};
+	void Move(float x, float y) override
+	{
+		m_shape->Move(x, y);
+	}
 private:
 	IShape* m_shape;
 };
