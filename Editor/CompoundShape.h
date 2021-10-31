@@ -74,30 +74,18 @@ public:
 	{
 		// find max left x and max right y
 
-		int minX = 100000;
-		int maxX = 0;
-		int maxY = 0;
-		int minY = 100000;
+		float minX = FLT_MAX;
+		float maxX = FLT_MIN;
+		float maxY = FLT_MIN;
+		float minY = FLT_MAX;
 
 		for (auto it = m_shapes.begin(); it != m_shapes.end(); it++)
 		{
 			auto bounds = (*it)->GetGlobalBounds();
-			if (bounds.left + bounds.width > maxX)
-			{
-				maxX = bounds.left + bounds.width;
-			}
-			if (bounds.left < minX)
-			{
-				minX = bounds.left;
-			}
-			if (bounds.top + bounds.height > maxY)
-			{
-				maxY = bounds.top + bounds.height;
-			}
-			if (bounds.top < minY)
-			{
-				minY = bounds.top;
-			}
+			maxX = std::max(bounds.left + bounds.width, maxX);
+			minX = std::min(bounds.left, minX);
+			maxY = std::max(bounds.top + bounds.height, maxY);
+			minY = std::min(bounds.top, minY);
 		}
 
 		sf::RectangleShape rect(sf::Vector2f(maxX - minX, maxY - minY));

@@ -26,12 +26,7 @@ int main()
 
 	std::list<CompoundShape*> shapes = { c1, c2, r1,r2 };
 
-	//auto& instance = Singleton::GetInstance(shapes);
-	auto& instance = Singleton::GetInstance();
-	instance.AddShape(c1);
-	instance.AddShape(c2);
-	instance.AddShape(r1);
-	instance.AddShape(r2);
+	auto& instance = Singleton::GetInstance(shapes);
 	instance.Start();
 
 	return 0;

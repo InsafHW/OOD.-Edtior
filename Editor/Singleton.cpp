@@ -1,16 +1,10 @@
 #include "Singleton.h"
 
-//Singleton& Singleton::GetInstance(std::list<CompoundShape*> shapes)
-//{
-//	static Singleton instance(shapes);
-//	return instance;
-//}
-
-Singleton& Singleton::GetInstance()
+Singleton& Singleton::GetInstance(std::list<CompoundShape*> shapes)
 {
-	static Singleton instance;
+	static Singleton instance(shapes);
 	return instance;
-};
+}
 
 void Singleton::AddShape(CompoundShape* shape)
 {
@@ -43,12 +37,13 @@ void Singleton::PollEvents()
 						comp->Add(*innerIt);
 						(*innerIt)->UnSelect();
 					}
-					shapes.clear();
 					m_shapes.remove(*it);
+					delete* it;
 				}
 				m_shapes.push_back(comp);
 				m_selectedShapes.clear();
 				m_selectedShapes.push_back(comp);
+				m_draggingShapeIdx = m_shapes.size() - 1;
 			}
 			if (m_ctrlPressed && m_event.key.code == sf::Keyboard::U)
 			{
@@ -56,8 +51,6 @@ void Singleton::PollEvents()
 				auto shapes = compound->GetShapes();
 				if (shapes.size() > 1)
 				{
-					m_shapes.remove(compound);
-					m_selectedShapes.remove(compound);
 					for (auto it = shapes.begin(); it != shapes.end(); it++)
 					{
 						CompoundShape* soloShape = new CompoundShape();
@@ -66,6 +59,9 @@ void Singleton::PollEvents()
 						m_shapes.push_back(soloShape);
 						m_selectedShapes.push_back(soloShape);
 					}
+					m_selectedShapes.remove(compound);
+					m_shapes.remove(compound);
+					delete compound;
 				}
 			};
 			break;
