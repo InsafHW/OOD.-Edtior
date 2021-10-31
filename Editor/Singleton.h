@@ -11,32 +11,31 @@
 class Singleton
 {
 public:
+	//static Singleton& GetInstance(std::list<CompoundShape*> shapes);
 	static Singleton& GetInstance();
 	Singleton(const Singleton&) = delete;
 	Singleton& operator=(const Singleton&) = delete;
 
 	void AddShape(CompoundShape* shape);
-
 	void Start();
-
 private:
-	Singleton();
+	//Singleton(std::list<CompoundShape*> shapes) : m_shapes(shapes) {};
+	Singleton() {};
 	sf::RenderWindow* m_window = new sf::RenderWindow(sf::VideoMode(1280, 800), "Editor");
+	sf::Event m_event;
+	sf::Vector2f m_mouseShapeOffset;
 
 	std::list<CompoundShape*> m_shapes;
+	std::list<CompoundShape*> m_selectedShapes;
 
-	bool mouseClicked = false;
-	bool draggingShape = false;
-	bool draggingCompound = false;
-	bool lShiftPressed = false;
-	bool ctrlPressed = false;
+	bool m_mouseClicked = false;
+	bool m_draggingShape = false;
+	bool m_lShiftPressed = false;
+	bool m_ctrlPressed = false;
 
-	sf::Vector2f mouseShapeOffset;
-
-	int mouseX = 0;
-	int mouseY = 0;
-
-	int draggingShapeIdx = 0;
+	int m_mouseX = 0;
+	int m_mouseY = 0;
+	int m_draggingShapeIdx = 0;
 
 	void PollEvents();
 	void Update();

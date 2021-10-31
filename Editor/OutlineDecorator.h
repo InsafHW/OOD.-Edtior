@@ -17,7 +17,7 @@ public:
 	{
 		m_shape->Draw(window);
 
-		if (m_shape->IsSelected() && !m_shape->IsPartOfCompound())
+		if (m_shape->IsSelected())
 		{
 			// draw outline
 			sf::RectangleShape rect(sf::Vector2f(m_shape->GetGlobalBounds().width, m_shape->GetGlobalBounds().height));

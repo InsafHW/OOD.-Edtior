@@ -51,11 +51,14 @@ public:
 
 	void Draw(sf::RenderWindow* window)
 	{
-		auto rect = GetBorder();
-		rect.setFillColor(sf::Color::Transparent);
-		rect.setOutlineThickness(2);
-		rect.setOutlineColor(sf::Color::Green);
-		window->draw(rect);
+		if (m_shapes.size() > 1)
+		{
+			auto rect = GetBorder();
+			rect.setFillColor(sf::Color::Transparent);
+			rect.setOutlineThickness(2);
+			rect.setOutlineColor(sf::Color::Green);
+			window->draw(rect);
+		}
 		for (auto it = m_shapes.begin(); it != m_shapes.end(); it++)
 		{
 			(*it)->Draw(window);
@@ -112,9 +115,33 @@ public:
 		return GetBorder().getOrigin();
 	};
 
+	bool IsSelected()
+	{
+		return m_selected;
+	};
+
+	void Select()
+	{
+		for (auto it = m_shapes.begin(); it != m_shapes.end(); it++)
+		{
+			(*it)->Select();
+		}
+		m_selected = true;
+	}
+
+	void Unselect()
+	{
+		for (auto it = m_shapes.begin(); it != m_shapes.end(); it++)
+		{
+			(*it)->UnSelect();
+		}
+		m_selected = false;
+	}
+
 private:
 	std::list<IShape*> m_shapes;
 	float m_prevX = -100000;
 	float m_prevY = -100000;
+	bool m_selected = false;
 };
 
