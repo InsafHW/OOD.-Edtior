@@ -157,15 +157,23 @@
     <ClCompile Include="IShape.cpp" />
     <ClCompile Include="OutlineDecorator.cpp" />
     <ClCompile Include="Rectangle.cpp" />
+    <ClCompile Include="ShapeReader.cpp" />
     <ClCompile Include="Singleton.cpp" />
+    <ClCompile Include="Triangle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Circle.h" />
     <ClInclude Include="CompoundShape.h" />
+    <ClInclude Include="ShapeReader.h" />
     <ClInclude Include="Singleton.h" />
     <ClInclude Include="IShape.h" />
     <ClInclude Include="OutlineDecorator.h" />
     <ClInclude Include="Rectangle.h" />
+    <ClInclude Include="Triangle.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="input.txt" />
+    <Text Include="output.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

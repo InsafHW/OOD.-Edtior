@@ -1,13 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include <vector>
 #include <list>
-#include "IShape.h"
 #include "CompoundShape.h"
-#include "OutlineDecorator.h"
-#include "Circle.h"
-#include "Rectangle.h"
-#include <memory>
 
 class Singleton
 {

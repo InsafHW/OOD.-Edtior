@@ -1,17 +1,7 @@
-﻿  Singleton.cpp
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\Singleton.cpp(88,86): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\Singleton.cpp(88,63): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
+﻿  ShapeReader.cpp
   Generating code
-  1 of 292 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
+  249 of 457 functions (54.5%) were compiled, the rest were copied from previous compilation.
+    178 functions were new in current compilation
+    38 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   Editor.vcxproj -> D:\STUDYIENG\5semestr\OOD\Editor\Release\Editor.exe

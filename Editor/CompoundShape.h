@@ -4,6 +4,8 @@
 #include "IShape.h"
 #include <iostream>
 
+const float INIT_MOUSE_POS = -100000;
+
 class CompoundShape
 {
 public:
@@ -37,7 +39,7 @@ public:
 		{
 			return;
 		}
-		if (m_prevX != -100000 && m_prevY != -100000)
+		if (m_prevX != INIT_MOUSE_POS && m_prevY != INIT_MOUSE_POS)
 		{
 			for (auto it = m_shapes.begin(); it != m_shapes.end(); it++)
 			{
@@ -73,7 +75,6 @@ public:
 	sf::RectangleShape GetBorder()
 	{
 		// find max left x and max right y
-
 		float minX = FLT_MAX;
 		float maxX = FLT_MIN;
 		float maxY = FLT_MIN;
@@ -128,8 +129,8 @@ public:
 
 private:
 	std::list<IShape*> m_shapes;
-	float m_prevX = -100000;
-	float m_prevY = -100000;
+	float m_prevX = INIT_MOUSE_POS;
+	float m_prevY = INIT_MOUSE_POS;
 	bool m_selected = false;
 };
 

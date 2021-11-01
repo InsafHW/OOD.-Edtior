@@ -1,13 +1,13 @@
 #include "Circle.h"
 
-double Circle::GetPerimeter()
+float Circle::GetPerimeter()
 {
-	return 0.0;
+	return 2 * M_PI * m_circle.getRadius();
 }
 
-double Circle::GetSquare()
+float Circle::GetSquare()
 {
-	return 0.0;
+	return M_PI * std::pow(m_circle.getRadius(), 2);
 }
 
 void Circle::Draw(sf::RenderWindow* window)
@@ -24,11 +24,6 @@ Circle::Circle(double centerX, double centerY, double radius)
 sf::FloatRect Circle::GetGlobalBounds()
 {
 	return m_circle.getGlobalBounds();
-}
-
-void Circle::SetPosition(float x, float y)
-{
-	m_circle.setPosition(x, y);
 }
 
 sf::Vector2f Circle::GetOrigin()
@@ -54,19 +49,4 @@ void Circle::UnSelect()
 void Circle::Move(float x, float y)
 {
 	m_circle.move(x, y);
-}
-
-bool Circle::IsPartOfCompound()
-{
-	return m_isPartOfCompound;
-}
-
-void Circle::SetIsPartOfCompound()
-{
-	m_isPartOfCompound = true;
-}
-
-void Circle::UnsetIsPartOfCompound()
-{
-	m_isPartOfCompound = false;
 }
