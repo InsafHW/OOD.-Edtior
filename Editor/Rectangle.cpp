@@ -1,13 +1,15 @@
 #include "Rectangle.h"
 
-double Rectangle::GetPerimeter()
+float Rectangle::GetPerimeter()
 {
-	return 0.0;
+	const auto bounds = m_rectangle.getGlobalBounds();
+	return (bounds.width + bounds.height) * 2;
 }
 
-double Rectangle::GetSquare()
+float Rectangle::GetSquare()
 {
-	return 0.0;
+	const auto bounds = m_rectangle.getGlobalBounds();
+	return bounds.width * bounds.height;
 }
 
 void Rectangle::Draw(sf::RenderWindow* window)
@@ -29,11 +31,6 @@ sf::FloatRect Rectangle::GetGlobalBounds()
 	return m_rectangle.getGlobalBounds();
 }
 
-void Rectangle::SetPosition(float x, float y)
-{
-	m_rectangle.setPosition(x, y);
-}
-
 sf::Vector2f Rectangle::GetOrigin()
 {
 	return m_rectangle.getOrigin();
@@ -52,4 +49,9 @@ void Rectangle::Select()
 void Rectangle::UnSelect()
 {
 	m_isSelected = false;
+}
+
+void Rectangle::Move(float x, float y)
+{
+	m_rectangle.move(x, y);
 }

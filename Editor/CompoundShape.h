@@ -4,6 +4,8 @@
 #include "IShape.h"
 #include <iostream>
 
+const float INIT_MOUSE_POS = -100000;
+
 class CompoundShape
 {
 public:
@@ -17,24 +19,118 @@ public:
 		m_shapes.remove(child);
 	}
 
-	void Move(float x, float y)
+	void RemoveAll()
 	{
-		std::cout << "x = " << x << "; y = " << y << std::endl;
 		for (auto it = m_shapes.begin(); it != m_shapes.end(); it++)
 		{
-			(*it)->SetPosition(x, y);
-			//(*it)->SetPosition((*it)->GetGlobalBounds().left - x, (*it)->GetGlobalBounds().top - y);
+			m_shapes.remove(*it);
 		}
+	};
+
+	std::list<IShape*> GetShapes()
+	{
+		return m_shapes;
+	};
+
+	void Move(float x, float y)
+	{
+
+		if (x == m_prevX && y == m_prevY)
+		{
+			return;
+		}
+		if (m_prevX != INIT_MOUSE_POS && m_prevY != INIT_MOUSE_POS)
+		{
+			for (auto it = m_shapes.begin(); it != m_shapes.end(); it++)
+			{
+				(*it)->Move(x - m_prevX, y - m_prevY);
+			}
+		}
+
+		m_prevX = x;
+		m_prevY = y;
 	};
 
 	void Draw(sf::RenderWindow* window)
 	{
+		if (m_shapes.size() > 1)
+		{
+			auto rect = GetBorder();
+			rect.setFillColor(sf::Color::Transparent);
+			rect.setOutlineThickness(2);
+			rect.setOutlineColor(sf::Color::Green);
+			window->draw(rect);
+		}
 		for (auto it = m_shapes.begin(); it != m_shapes.end(); it++)
 		{
 			(*it)->Draw(window);
 		}
 	};
+
+	bool IsMouseInGroup(float x, float y)
+	{
+		return GetGlobalBounds().contains(x, y);
+	};
+
+	sf::RectangleShape GetBorder()
+	{
+		// find max left x and max right y
+		float minX = FLT_MAX;
+		float maxX = FLT_MIN;
+		float maxY = FLT_MIN;
+		float minY = FLT_MAX;
+
+		for (auto it = m_shapes.begin(); it != m_shapes.end(); it++)
+		{
+			auto bounds = (*it)->GetGlobalBounds();
+			maxX = std::max(bounds.left + bounds.width, maxX);
+			minX = std::min(bounds.left, minX);
+			maxY = std::max(bounds.top + bounds.height, maxY);
+			minY = std::min(bounds.top, minY);
+		}
+
+		sf::RectangleShape rect(sf::Vector2f(maxX - minX, maxY - minY));
+		rect.setPosition(minX, minY);
+		return rect;
+	};
+
+	sf::FloatRect GetGlobalBounds()
+	{
+		return GetBorder().getGlobalBounds();
+	};
+
+	sf::Vector2f GetOrigin()
+	{
+		return GetBorder().getOrigin();
+	};
+
+	bool IsSelected()
+	{
+		return m_selected;
+	};
+
+	void Select()
+	{
+		for (auto it = m_shapes.begin(); it != m_shapes.end(); it++)
+		{
+			(*it)->Select();
+		}
+		m_selected = true;
+	}
+
+	void Unselect()
+	{
+		for (auto it = m_shapes.begin(); it != m_shapes.end(); it++)
+		{
+			(*it)->UnSelect();
+		}
+		m_selected = false;
+	}
+
 private:
 	std::list<IShape*> m_shapes;
+	float m_prevX = INIT_MOUSE_POS;
+	float m_prevY = INIT_MOUSE_POS;
+	bool m_selected = false;
 };
 

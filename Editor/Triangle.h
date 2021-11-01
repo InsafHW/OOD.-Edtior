@@ -1,13 +1,13 @@
 #pragma once
 #include "IShape.h"
 
-class Rectangle : public IShape
+class Triangle : public IShape
 {
 public:
 	float GetPerimeter() override;
 	float GetSquare() override;
 	void Draw(sf::RenderWindow* window) override;
-	Rectangle(double topLeftX, double topLeftY, double bottomRightX, double bottomRightY);
+	Triangle(double aX, double aY, double bX, double bY, double cX, double cY);
 	sf::FloatRect GetGlobalBounds() override;
 	sf::Vector2f GetOrigin() override;
 	bool IsSelected() override;
@@ -15,7 +15,10 @@ public:
 	void UnSelect() override;
 	void Move(float x, float y) override;
 private:
-	sf::RectangleShape m_rectangle;
+	sf::ConvexShape m_triangle;
 	bool m_isSelected = false;
+	float m_AB;
+	float m_BC;
+	float m_AC;
 };
 
