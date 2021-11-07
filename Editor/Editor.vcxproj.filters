@@ -13,11 +13,23 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Toolbar">
+      <UniqueIdentifier>{7cec2c9d-bc16-4521-b4bd-54e1d57ff47c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\img">
+      <UniqueIdentifier>{c3173c04-49f7-46b4-8c3e-c4ef9dfcb80d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Toolbar\Button">
+      <UniqueIdentifier>{b2d8e458-fb3c-43e4-af7e-fbf8465767aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Canvas">
+      <UniqueIdentifier>{d0f9b340-f5e2-4507-a141-8a5680133c79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Canvas\State">
+      <UniqueIdentifier>{49407058-55c3-482a-baec-39e2fc8be8be}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Editor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="IShape.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -33,13 +45,22 @@
     <ClCompile Include="CompoundShape.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Singleton.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Triangle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ShapeReader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Application.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Canvas.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DragAndDropState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -59,18 +80,44 @@
     <ClInclude Include="CompoundShape.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Singleton.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Triangle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ShapeReader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Toolbar.h">
+      <Filter>Header Files\Toolbar</Filter>
+    </ClInclude>
+    <ClInclude Include="Application.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Header Files\Toolbar\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="ButtonType.h">
+      <Filter>Header Files\Toolbar\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="Color.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Canvas.h">
+      <Filter>Header Files\Canvas</Filter>
+    </ClInclude>
+    <ClInclude Include="IState.h">
+      <Filter>Header Files\Canvas\State</Filter>
+    </ClInclude>
+    <ClInclude Include="DragAndDropState.h">
+      <Filter>Header Files\Canvas\State</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="input.txt" />
     <Text Include="output.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\..\..\DOWNLOADS\circle.png">
+      <Filter>Source Files\img</Filter>
+    </Image>
   </ItemGroup>
 </Project>

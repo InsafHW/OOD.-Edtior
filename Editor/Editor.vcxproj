@@ -151,29 +151,41 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Application.cpp" />
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="CompoundShape.cpp" />
-    <ClCompile Include="Editor.cpp" />
+    <ClCompile Include="DragAndDropState.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="IShape.cpp" />
     <ClCompile Include="OutlineDecorator.cpp" />
     <ClCompile Include="Rectangle.cpp" />
     <ClCompile Include="ShapeReader.cpp" />
-    <ClCompile Include="Singleton.cpp" />
+    <ClCompile Include="Canvas.cpp" />
     <ClCompile Include="Triangle.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Application.h" />
+    <ClInclude Include="Button.h" />
+    <ClInclude Include="ButtonType.h" />
     <ClInclude Include="Circle.h" />
+    <ClInclude Include="Color.h" />
     <ClInclude Include="CompoundShape.h" />
+    <ClInclude Include="DragAndDropState.h" />
+    <ClInclude Include="IState.h" />
     <ClInclude Include="ShapeReader.h" />
-    <ClInclude Include="Singleton.h" />
+    <ClInclude Include="Canvas.h" />
     <ClInclude Include="IShape.h" />
     <ClInclude Include="OutlineDecorator.h" />
     <ClInclude Include="Rectangle.h" />
+    <ClInclude Include="Toolbar.h" />
     <ClInclude Include="Triangle.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="input.txt" />
     <Text Include="output.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\..\..\DOWNLOADS\circle.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
