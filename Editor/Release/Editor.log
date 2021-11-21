@@ -1,14 +1,4 @@
 ﻿  Application.cpp
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\DragAndDropState.h(10,3): error C2061: syntax error: identifier 'Canvas'
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\DragAndDropState.h(19,8): error C2143: syntax error: missing ';' before '&'
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\DragAndDropState.h(19,8): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\DragAndDropState.h(19,18): error C2238: unexpected token(s) preceding ';'
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\DragAndDropState.h(11,13): error C2065: 'canvas': undeclared identifier
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\DragAndDropState.h(11,4): error C2614: 'DragAndDropState': illegal member initialization: 'm_canvas' is not a base or member
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\Canvas.h(95,1): error C2664: 'DragAndDropState::DragAndDropState(DragAndDropState &&)': cannot convert argument 1 from 'Canvas' to 'const DragAndDropState &'
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\Canvas.h(95,1): message : Reason: cannot convert from 'Canvas' to 'const DragAndDropState'
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\Canvas.h(95,45): message : No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\DragAndDropState.h(21,1): message : see declaration of 'DragAndDropState::DragAndDropState'
 D:\STUDYIENG\5semestr\OOD\Editor\Editor\Toolbar.h(53,70): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
           with
           [
@@ -52,30 +42,7 @@ D:\STUDYIENG\5semestr\OOD\Editor\Editor\Toolbar.h(177,60): warning C4244: 'argum
           [
               T=float
           ]
-  DragAndDropState.cpp
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\DragAndDropState.h(10,3): error C2061: syntax error: identifier 'Canvas'
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\DragAndDropState.h(19,8): error C2143: syntax error: missing ';' before '&'
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\DragAndDropState.h(19,8): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\DragAndDropState.h(19,18): error C2238: unexpected token(s) preceding ';'
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\DragAndDropState.h(11,13): error C2065: 'canvas': undeclared identifier
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\DragAndDropState.h(11,4): error C2614: 'DragAndDropState': illegal member initialization: 'm_canvas' is not a base or member
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\Canvas.h(95,1): error C2664: 'DragAndDropState::DragAndDropState(DragAndDropState &&)': cannot convert argument 1 from 'Canvas' to 'const DragAndDropState &'
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\Canvas.h(95,1): message : Reason: cannot convert from 'Canvas' to 'const DragAndDropState'
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\Canvas.h(95,45): message : No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\DragAndDropState.h(21,1): message : see declaration of 'DragAndDropState::DragAndDropState'
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\DragAndDropState.h(6,24): error C2011: 'DragAndDropState': 'class' type redefinition
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\DragAndDropState.h(6): message : see declaration of 'DragAndDropState'
   main.cpp
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\DragAndDropState.h(10,3): error C2061: syntax error: identifier 'Canvas'
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\DragAndDropState.h(19,8): error C2143: syntax error: missing ';' before '&'
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\DragAndDropState.h(19,8): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\DragAndDropState.h(19,18): error C2238: unexpected token(s) preceding ';'
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\DragAndDropState.h(11,13): error C2065: 'canvas': undeclared identifier
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\DragAndDropState.h(11,4): error C2614: 'DragAndDropState': illegal member initialization: 'm_canvas' is not a base or member
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\Canvas.h(95,1): error C2664: 'DragAndDropState::DragAndDropState(DragAndDropState &&)': cannot convert argument 1 from 'Canvas' to 'const DragAndDropState &'
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\Canvas.h(95,1): message : Reason: cannot convert from 'Canvas' to 'const DragAndDropState'
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\Canvas.h(95,45): message : No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\DragAndDropState.h(21,1): message : see declaration of 'DragAndDropState::DragAndDropState'
 D:\STUDYIENG\5semestr\OOD\Editor\Editor\Toolbar.h(53,70): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
           with
           [
@@ -120,16 +87,6 @@ D:\STUDYIENG\5semestr\OOD\Editor\Editor\Toolbar.h(177,60): warning C4244: 'argum
               T=float
           ]
   Canvas.cpp
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\DragAndDropState.h(10,3): error C2061: syntax error: identifier 'Canvas'
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\DragAndDropState.h(19,8): error C2143: syntax error: missing ';' before '&'
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\DragAndDropState.h(19,8): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\DragAndDropState.h(19,18): error C2238: unexpected token(s) preceding ';'
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\DragAndDropState.h(11,13): error C2065: 'canvas': undeclared identifier
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\DragAndDropState.h(11,4): error C2614: 'DragAndDropState': illegal member initialization: 'm_canvas' is not a base or member
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\Canvas.h(95,1): error C2664: 'DragAndDropState::DragAndDropState(DragAndDropState &&)': cannot convert argument 1 from 'Canvas' to 'const DragAndDropState &'
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\Canvas.h(95,1): message : Reason: cannot convert from 'Canvas' to 'const DragAndDropState'
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\Canvas.h(95,45): message : No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\DragAndDropState.h(21,1): message : see declaration of 'DragAndDropState::DragAndDropState'
 D:\STUDYIENG\5semestr\OOD\Editor\Editor\Canvas.cpp(72,81): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
@@ -170,3 +127,9 @@ D:\STUDYIENG\5semestr\OOD\Editor\Editor\Canvas.cpp(234,60): warning C4244: 'argu
           [
               T=float
           ]
+  Generating code
+  196 of 575 functions (34.1%) were compiled, the rest were copied from previous compilation.
+    1 functions were new in current compilation
+    11 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  Editor.vcxproj -> D:\STUDYIENG\5semestr\OOD\Editor\Release\Editor.exe

@@ -90,11 +90,6 @@ public:
 		m_type = StateType::CHANGE_OUTLINE_THICKNESS_TYPE;
 	};
 
-	void SetDragAndDropStateMan()
-	{
-		m_currentState.reset(new DragAndDropState(*this));
-	};
-
 private:
 	StateType m_type;
 	sf::Vector2f m_mouseShapeOffset;
@@ -110,10 +105,6 @@ private:
 	int m_mouseX = 0;
 	int m_mouseY = 0;
 	int m_draggingShapeIdx = 0;
-
-
-
-	std::unique_ptr<CanvasState> m_currentState;
 
 	sf::Color m_color;
 	int m_size;

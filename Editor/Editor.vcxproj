@@ -156,7 +156,6 @@
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="CompoundShape.cpp" />
-    <ClCompile Include="DragAndDropState.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="IShape.cpp" />
     <ClCompile Include="OutlineDecorator.cpp" />
@@ -172,8 +171,6 @@
     <ClInclude Include="Circle.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="CompoundShape.h" />
-    <ClInclude Include="DragAndDropState.h" />
-    <ClInclude Include="CanvasState.h" />
     <ClInclude Include="ShapeReader.h" />
     <ClInclude Include="Canvas.h" />
     <ClInclude Include="IShape.h" />

@@ -25,9 +25,6 @@
     <Filter Include="Header Files\Canvas">
       <UniqueIdentifier>{d0f9b340-f5e2-4507-a141-8a5680133c79}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Canvas\State">
-      <UniqueIdentifier>{49407058-55c3-482a-baec-39e2fc8be8be}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="IShape.cpp">
@@ -55,9 +52,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Application.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="DragAndDropState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Canvas.cpp">
@@ -104,14 +98,8 @@
     <ClInclude Include="Canvas.h">
       <Filter>Header Files\Canvas</Filter>
     </ClInclude>
-    <ClInclude Include="DragAndDropState.h">
-      <Filter>Header Files\Canvas\State</Filter>
-    </ClInclude>
     <ClInclude Include="StateType.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CanvasState.h">
-      <Filter>Header Files\Canvas\State</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
