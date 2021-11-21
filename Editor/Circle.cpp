@@ -10,6 +10,11 @@ float Circle::GetSquare()
 	return M_PI * std::pow(m_circle.getRadius(), 2);
 }
 
+sf::Color Circle::GetFillColor()
+{
+	return m_circle.getFillColor();
+}
+
 void Circle::Draw(sf::RenderWindow* window)
 {
 	window->draw(m_circle);

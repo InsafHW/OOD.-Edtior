@@ -5,6 +5,11 @@ void Canvas::DragAndDropPollEvent(sf::Event event, sf::RenderWindow* window)
 	switch (event.type)
 	{
 	case sf::Event::KeyPressed:
+		if (m_ctrlPressed && event.key.code == sf::Keyboard::Z)
+		{
+			std::cout << "Restored" << std::endl;
+			RestoreState(m_history.Pop());
+		};
 		if (event.key.code == sf::Keyboard::LShift)
 		{
 			m_lShiftPressed = true;
@@ -129,6 +134,7 @@ void Canvas::AddRectanglePollEvent(sf::Event event, sf::RenderWindow* window)
 		if (event.mouseButton.button == sf::Mouse::Left && event.mouseButton.y > 30)
 		{
 			CompoundShape* shape = new CompoundShape();
+			m_history.Push(SaveState());
 			shape->Add(new OutlineDecorator(new Rectangle(event.mouseButton.x, event.mouseButton.y, event.mouseButton.x + 100, event.mouseButton.y + 100)));
 			m_shapes.push_back(shape);
 		};
@@ -146,6 +152,7 @@ void Canvas::AddTrianglePollEvent(sf::Event event, sf::RenderWindow* window)
 		if (event.mouseButton.button == sf::Mouse::Left && event.mouseButton.y > 30)
 		{
 			CompoundShape* shape = new CompoundShape();
+			m_history.Push(SaveState());
 			shape->Add(new OutlineDecorator(new Triangle(event.mouseButton.x, event.mouseButton.y + 100, event.mouseButton.x + 100, event.mouseButton.y, event.mouseButton.x + 200, event.mouseButton.y + 100)));
 			m_shapes.push_back(shape);
 		};
@@ -163,6 +170,7 @@ void Canvas::AddCirclePollEvent(sf::Event event, sf::RenderWindow* window)
 		if (event.mouseButton.button == sf::Mouse::Left && event.mouseButton.y > 30)
 		{
 			CompoundShape* shape = new CompoundShape();
+			m_history.Push(SaveState());
 			shape->Add(new OutlineDecorator(new Circle(event.mouseButton.x, event.mouseButton.y, 100)));
 			m_shapes.push_back(shape);
 		};
@@ -184,6 +192,8 @@ void Canvas::ChangeFillColorPollEvent(sf::Event event, sf::RenderWindow* window)
 			{
 				if ((*it)->GetGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y))
 				{
+					m_history.Push(SaveState());
+
 					std::cout << "ChangeFillColorPollEvent\n";
 
 					(*it)->ChangeFillColor(m_color);

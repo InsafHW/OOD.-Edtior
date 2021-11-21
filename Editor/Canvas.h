@@ -9,6 +9,54 @@
 #include "Rectangle.h"
 #include "Triangle.h"
 #include "Circle.h"
+#include <vector>
+
+struct ShapeState
+{
+	CompoundShape* shape;
+	sf::Color fillColor;
+};
+
+class CanvasMemento
+{
+public:
+	std::list<ShapeState> m_shapes;
+	std::list<CompoundShape*> m_selectedShapes;
+
+	CanvasMemento(std::list<CompoundShape*> shapes, std::list<CompoundShape*> selectedShapes)
+		:m_selectedShapes(selectedShapes)
+	{
+		for (auto it = shapes.begin(); it != shapes.end(); it++)
+		{
+			m_shapes.push_back({ *it, (*it)->GetFillColor() });
+		}
+	};
+};
+
+class CanvasHistory
+{
+public:
+	CanvasHistory()
+	{
+	};
+
+	void Push(CanvasMemento memento)
+	{
+		m_history.push_back(memento);
+	};
+
+	CanvasMemento Pop()
+	{
+		auto last = m_history[m_history.size() - 1];
+		if (m_history.size() > 1)
+		{
+			m_history.pop_back();
+		}
+		return last;
+	};
+private:
+	std::vector<CanvasMemento> m_history;
+};
 
 class Canvas
 {
@@ -17,6 +65,7 @@ public:
 		: m_shapes(shapes),
 		m_type(StateType::DRAG_AND_DROP)
 	{
+		m_history.Push(SaveState());
 		//SetDragAndDropStateMan();
 	}
 
@@ -90,6 +139,26 @@ public:
 		m_type = StateType::CHANGE_OUTLINE_THICKNESS_TYPE;
 	};
 
+
+	CanvasMemento SaveState()
+	{
+		std::cout << "Saving..." << std::endl;
+		return CanvasMemento(m_shapes, m_selectedShapes);
+	};
+
+	void RestoreState(CanvasMemento memento)
+	{
+		m_shapes.clear();
+		for (auto it = memento.m_shapes.begin(); it != memento.m_shapes.end(); it++)
+		{
+			(*it).shape->ChangeFillColor((*it).fillColor);
+			m_shapes.push_back((*it).shape);
+
+		}
+
+		m_selectedShapes = memento.m_selectedShapes;
+	};
+
 private:
 	StateType m_type;
 	sf::Vector2f m_mouseShapeOffset;
@@ -108,6 +177,8 @@ private:
 
 	sf::Color m_color;
 	int m_size;
+
+	CanvasHistory m_history;
 
 	void DragAndDropPollEvent(sf::Event event, sf::RenderWindow* window);
 	void AddRectanglePollEvent(sf::Event event, sf::RenderWindow* window);

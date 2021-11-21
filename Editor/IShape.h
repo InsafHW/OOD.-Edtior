@@ -6,6 +6,7 @@ class IShape
 public:
 	virtual float GetPerimeter() = 0;
 	virtual float GetSquare() = 0;
+	virtual sf::Color GetFillColor() = 0;
 	virtual void Draw(sf::RenderWindow* window) = 0;
 	virtual sf::FloatRect GetGlobalBounds() = 0;
 	virtual sf::Vector2f GetOrigin() = 0;

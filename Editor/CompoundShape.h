@@ -150,6 +150,11 @@ public:
 			(*it)->ChangeOutlineThickness(size);
 		}
 	}
+
+	sf::Color GetFillColor()
+	{
+		return m_shapes.front()->GetFillColor();
+	}
 private:
 	std::list<IShape*> m_shapes;
 	float m_prevX = INIT_MOUSE_POS;
