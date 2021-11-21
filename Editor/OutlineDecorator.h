@@ -62,6 +62,18 @@ public:
 	{
 		m_shape->Move(x, y);
 	}
+	void ChangeFillColor(sf::Color color) override
+	{
+		m_shape->ChangeFillColor(color);
+	}
+	void ChangeOutlineColor(sf::Color color) override
+	{
+		m_shape->ChangeOutlineColor(color);
+	}
+	void ChangeOutlineThickness(int size) override
+	{
+		m_shape->ChangeOutlineThickness(size);
+	}
 private:
 	IShape* m_shape;
 };

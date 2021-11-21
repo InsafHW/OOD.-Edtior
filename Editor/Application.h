@@ -42,6 +42,7 @@ private:
 	Application(std::list<CompoundShape*> shapes)
 	{
 		m_canvas = new Canvas(shapes);
+		m_canvas->SetDragAndDropStateMan();
 		m_toolbar = new Toolbar(m_canvas);
 		m_window = new sf::RenderWindow(sf::VideoMode(1280, 800), "Editor");
 	};

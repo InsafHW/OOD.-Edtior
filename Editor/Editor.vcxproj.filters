@@ -57,10 +57,10 @@
     <ClCompile Include="Application.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Canvas.cpp">
+    <ClCompile Include="DragAndDropState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DragAndDropState.cpp">
+    <ClCompile Include="Canvas.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -104,10 +104,13 @@
     <ClInclude Include="Canvas.h">
       <Filter>Header Files\Canvas</Filter>
     </ClInclude>
-    <ClInclude Include="IState.h">
+    <ClInclude Include="DragAndDropState.h">
       <Filter>Header Files\Canvas\State</Filter>
     </ClInclude>
-    <ClInclude Include="DragAndDropState.h">
+    <ClInclude Include="StateType.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CanvasState.h">
       <Filter>Header Files\Canvas\State</Filter>
     </ClInclude>
   </ItemGroup>

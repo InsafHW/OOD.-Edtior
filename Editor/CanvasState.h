@@ -1,8 +1,9 @@
 #pragma once
 #include "SFML/Graphics.hpp"
 
-struct IState
+class CanvasState
 {
+public:
 	virtual void PollEvent(sf::Event event, sf::RenderWindow* window) = 0;
 };
 

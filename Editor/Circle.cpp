@@ -19,6 +19,8 @@ Circle::Circle(double centerX, double centerY, double radius)
 {
 	m_circle = sf::CircleShape(radius);
 	m_circle.setPosition(centerX, centerY);
+	m_circle.setOutlineThickness(1);
+	m_circle.setOutlineColor(sf::Color::Red);
 }
 
 sf::FloatRect Circle::GetGlobalBounds()
@@ -49,4 +51,19 @@ void Circle::UnSelect()
 void Circle::Move(float x, float y)
 {
 	m_circle.move(x, y);
+}
+
+void Circle::ChangeFillColor(sf::Color color)
+{
+	m_circle.setFillColor(color);
+}
+
+void Circle::ChangeOutlineColor(sf::Color color)
+{
+	m_circle.setOutlineColor(color);
+}
+
+void Circle::ChangeOutlineThickness(int size)
+{
+	m_circle.setOutlineThickness(size);
 }

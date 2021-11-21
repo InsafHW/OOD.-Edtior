@@ -1,11 +1,6 @@
 #include "Canvas.h"
 
-void Canvas::AddShape(CompoundShape* shape)
-{
-	m_shapes.push_back(shape);
-}
-
-void Canvas::PollEvents(sf::Event event, sf::RenderWindow* window)
+void Canvas::DragAndDropPollEvent(sf::Event event, sf::RenderWindow* window)
 {
 	switch (event.type)
 	{
@@ -76,12 +71,7 @@ void Canvas::PollEvents(sf::Event event, sf::RenderWindow* window)
 			{
 				if ((*it)->GetGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y))
 				{
-					if (m_selectedShapes.size() == 0 && !(*it)->IsSelected())
-					{
-						(*it)->Select();
-						m_selectedShapes.push_back(*it);
-					}
-					else if (m_lShiftPressed)
+					if (m_lShiftPressed)
 					{
 						if ((*it)->IsSelected())
 						{
@@ -93,7 +83,18 @@ void Canvas::PollEvents(sf::Event event, sf::RenderWindow* window)
 							(*it)->Select();
 							m_selectedShapes.push_back(*it);
 						}
-					};
+					}
+					else
+					{
+						for (auto it = m_selectedShapes.begin(); it != m_selectedShapes.end(); it++)
+						{
+							(*it)->Unselect();
+						}
+						(*it)->Select();
+						m_selectedShapes.clear();
+						m_selectedShapes.push_back(*it);
+
+					}
 					m_draggingShapeIdx = id;
 					m_draggingShape = true;
 					m_mouseShapeOffset.x = event.mouseButton.x - (*it)->GetGlobalBounds().left - (*it)->GetOrigin().x;
@@ -114,6 +115,131 @@ void Canvas::PollEvents(sf::Event event, sf::RenderWindow* window)
 	case sf::Event::MouseMoved:
 		m_mouseX = event.mouseMove.x;
 		m_mouseY = event.mouseMove.y;
+		break;
+	default:
+		break;
+	}
+}
+
+void Canvas::AddRectanglePollEvent(sf::Event event, sf::RenderWindow* window)
+{
+	switch (event.type)
+	{
+	case sf::Event::MouseButtonPressed:
+		if (event.mouseButton.button == sf::Mouse::Left && event.mouseButton.y > 30)
+		{
+			CompoundShape* shape = new CompoundShape();
+			shape->Add(new OutlineDecorator(new Rectangle(event.mouseButton.x, event.mouseButton.y, event.mouseButton.x + 100, event.mouseButton.y + 100)));
+			m_shapes.push_back(shape);
+		};
+		break;
+	default:
+		break;
+	}
+}
+
+void Canvas::AddTrianglePollEvent(sf::Event event, sf::RenderWindow* window)
+{
+	switch (event.type)
+	{
+	case sf::Event::MouseButtonPressed:
+		if (event.mouseButton.button == sf::Mouse::Left && event.mouseButton.y > 30)
+		{
+			CompoundShape* shape = new CompoundShape();
+			shape->Add(new OutlineDecorator(new Triangle(event.mouseButton.x, event.mouseButton.y + 100, event.mouseButton.x + 100, event.mouseButton.y, event.mouseButton.x + 200, event.mouseButton.y + 100)));
+			m_shapes.push_back(shape);
+		};
+		break;
+	default:
+		break;
+	}
+}
+
+void Canvas::AddCirclePollEvent(sf::Event event, sf::RenderWindow* window)
+{
+	switch (event.type)
+	{
+	case sf::Event::MouseButtonPressed:
+		if (event.mouseButton.button == sf::Mouse::Left && event.mouseButton.y > 30)
+		{
+			CompoundShape* shape = new CompoundShape();
+			shape->Add(new OutlineDecorator(new Circle(event.mouseButton.x, event.mouseButton.y, 100)));
+			m_shapes.push_back(shape);
+		};
+		break;
+	default:
+		break;
+	}
+}
+
+void Canvas::ChangeFillColorPollEvent(sf::Event event, sf::RenderWindow* window)
+{
+
+	switch (event.type)
+	{
+	case sf::Event::MouseButtonPressed:
+		if (event.mouseButton.button == sf::Mouse::Left)
+		{
+			for (auto it = m_shapes.begin(); it != m_shapes.end(); it++)
+			{
+				if ((*it)->GetGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y))
+				{
+					std::cout << "ChangeFillColorPollEvent\n";
+
+					(*it)->ChangeFillColor(m_color);
+					break;
+				}
+			}
+		};
+		break;
+	default:
+		break;
+	}
+}
+
+void Canvas::ChangeOutlineColorPollEvent(sf::Event event, sf::RenderWindow* window)
+{
+
+	switch (event.type)
+	{
+	case sf::Event::MouseButtonPressed:
+		if (event.mouseButton.button == sf::Mouse::Left)
+		{
+			for (auto it = m_shapes.begin(); it != m_shapes.end(); it++)
+			{
+				if ((*it)->GetGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y))
+				{
+					std::cout << "ChangeFillColorPollEvent\n";
+
+					(*it)->ChangeOutlineColor(m_color);
+					break;
+				}
+			}
+		};
+		break;
+	default:
+		break;
+	}
+}
+
+void Canvas::ChangeOutlineThicknessPollEvent(sf::Event event, sf::RenderWindow* window)
+{
+	switch (event.type)
+	{
+	case sf::Event::MouseButtonPressed:
+		if (event.mouseButton.button == sf::Mouse::Left)
+		{
+			for (auto it = m_shapes.begin(); it != m_shapes.end(); it++)
+			{
+				if ((*it)->GetGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y))
+				{
+					std::cout << "ChangeOutlineThicknessPollEvent\n";
+
+					(*it)->ChangeOutlineThickness(m_size);
+					break;
+				}
+			}
+		};
 		break;
 	default:
 		break;

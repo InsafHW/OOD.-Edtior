@@ -111,9 +111,9 @@ public:
 
 	void Select()
 	{
-		for (auto it = m_shapes.begin(); it != m_shapes.end(); it++)
+		if (m_shapes.size() == 1)
 		{
-			(*it)->Select();
+			m_shapes.back()->Select();
 		}
 		m_selected = true;
 	}
@@ -127,6 +127,29 @@ public:
 		m_selected = false;
 	}
 
+	void ChangeFillColor(sf::Color color)
+	{
+		for (auto it = m_shapes.begin(); it != m_shapes.end(); it++)
+		{
+			(*it)->ChangeFillColor(color);
+		}
+	}
+
+	void ChangeOutlineColor(sf::Color color)
+	{
+		for (auto it = m_shapes.begin(); it != m_shapes.end(); it++)
+		{
+			(*it)->ChangeOutlineColor(color);
+		}
+	}
+
+	void ChangeOutlineThickness(int size)
+	{
+		for (auto it = m_shapes.begin(); it != m_shapes.end(); it++)
+		{
+			(*it)->ChangeOutlineThickness(size);
+		}
+	}
 private:
 	std::list<IShape*> m_shapes;
 	float m_prevX = INIT_MOUSE_POS;

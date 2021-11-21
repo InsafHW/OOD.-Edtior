@@ -57,3 +57,18 @@ void Triangle::Move(float x, float y)
 {
 	m_triangle.move(x, y);
 }
+
+void Triangle::ChangeFillColor(sf::Color color)
+{
+	m_triangle.setFillColor(color);
+}
+
+void Triangle::ChangeOutlineColor(sf::Color color)
+{
+	m_triangle.setOutlineColor(color);
+}
+
+void Triangle::ChangeOutlineThickness(int size)
+{
+	m_triangle.setOutlineThickness(size);
+}

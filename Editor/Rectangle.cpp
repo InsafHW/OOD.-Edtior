@@ -55,3 +55,18 @@ void Rectangle::Move(float x, float y)
 {
 	m_rectangle.move(x, y);
 }
+
+void Rectangle::ChangeFillColor(sf::Color color)
+{
+	m_rectangle.setFillColor(color);
+}
+
+void Rectangle::ChangeOutlineColor(sf::Color color)
+{
+	m_rectangle.setOutlineColor(color);
+}
+
+void Rectangle::ChangeOutlineThickness(int size)
+{
+	m_rectangle.setOutlineThickness(size);
+}
