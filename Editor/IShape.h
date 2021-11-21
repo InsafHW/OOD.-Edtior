@@ -13,5 +13,8 @@ public:
 	virtual void Select() = 0;
 	virtual void UnSelect() = 0;
 	virtual void Move(float x, float y) = 0;
+	virtual void ChangeFillColor(sf::Color color) = 0;
+	virtual void ChangeOutlineColor(sf::Color color) = 0;
+	virtual void ChangeOutlineThickness(int size) = 0;
 };
 

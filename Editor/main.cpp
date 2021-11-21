@@ -1,13 +1,7 @@
-#include <iostream>
-#include <SFML/Graphics.hpp>
-#include "Circle.h"
-#include "Rectangle.h"
-#include "Triangle.h"
 #include "OutlineDecorator.h"
 #include "CompoundShape.h"
-#include <iostream>
-#include "Singleton.h"
 #include "ShapeReader.h"
+#include "Application.h"
 
 int main()
 {
@@ -23,7 +17,7 @@ int main()
 		shapes.push_back(shape);
 	}
 
-	auto& instance = Singleton::GetInstance(shapes);
+	auto& instance = Application::GetInstance(shapes);
 	instance.Start();
 
 	return 0;

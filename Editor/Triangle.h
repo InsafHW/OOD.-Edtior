@@ -14,6 +14,9 @@ public:
 	void Select() override;
 	void UnSelect() override;
 	void Move(float x, float y) override;
+	void ChangeFillColor(sf::Color color) override;
+	void ChangeOutlineColor(sf::Color color) override;
+	void ChangeOutlineThickness(int size) override;
 private:
 	sf::ConvexShape m_triangle;
 	bool m_isSelected = false;
