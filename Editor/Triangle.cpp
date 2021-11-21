@@ -11,6 +11,11 @@ float Triangle::GetSquare()
 	return sqrt(poluperimeter * (poluperimeter - m_AB) * (poluperimeter - m_AC) * (poluperimeter - m_BC));
 }
 
+sf::Color Triangle::GetFillColor()
+{
+	return m_triangle.getFillColor();
+}
+
 void Triangle::Draw(sf::RenderWindow* window)
 {
 	window->draw(m_triangle);

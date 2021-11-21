@@ -12,6 +12,11 @@ float Rectangle::GetSquare()
 	return bounds.width * bounds.height;
 }
 
+sf::Color Rectangle::GetFillColor()
+{
+	return m_rectangle.getFillColor();
+}
+
 void Rectangle::Draw(sf::RenderWindow* window)
 {
 	window->draw(m_rectangle);

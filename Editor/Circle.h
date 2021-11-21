@@ -8,6 +8,7 @@ class Circle : public IShape
 public:
 	float GetPerimeter() override;
 	float GetSquare() override;
+	sf::Color GetFillColor() override;
 	void Draw(sf::RenderWindow* window) override;
 	Circle(double centerX, double centerY, double radius);
 	sf::FloatRect GetGlobalBounds() override;

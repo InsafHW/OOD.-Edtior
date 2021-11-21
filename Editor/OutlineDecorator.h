@@ -74,6 +74,11 @@ public:
 	{
 		m_shape->ChangeOutlineThickness(size);
 	}
+	sf::Color GetFillColor() override
+	{
+		return m_shape->GetFillColor();
+	};
+
 private:
 	IShape* m_shape;
 };

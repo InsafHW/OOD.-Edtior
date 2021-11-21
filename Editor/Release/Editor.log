@@ -42,6 +42,47 @@ D:\STUDYIENG\5semestr\OOD\Editor\Editor\Toolbar.h(177,60): warning C4244: 'argum
           [
               T=float
           ]
+  Canvas.cpp
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\Canvas.cpp(77,81): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\Canvas.cpp(77,60): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\Canvas.cpp(193,81): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\Canvas.cpp(193,60): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\Canvas.cpp(220,81): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\Canvas.cpp(220,60): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\Canvas.cpp(244,81): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\Canvas.cpp(244,60): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
   main.cpp
 D:\STUDYIENG\5semestr\OOD\Editor\Editor\Toolbar.h(53,70): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
           with
@@ -86,50 +127,9 @@ D:\STUDYIENG\5semestr\OOD\Editor\Editor\Toolbar.h(177,60): warning C4244: 'argum
           [
               T=float
           ]
-  Canvas.cpp
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\Canvas.cpp(72,81): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\Canvas.cpp(72,60): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\Canvas.cpp(185,81): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\Canvas.cpp(185,60): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\Canvas.cpp(210,81): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\Canvas.cpp(210,60): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\Canvas.cpp(234,81): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\Canvas.cpp(234,60): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
   Generating code
-  196 of 575 functions (34.1%) were compiled, the rest were copied from previous compilation.
-    1 functions were new in current compilation
-    11 functions had inline decision re-evaluated but remain unchanged
+  4 of 739 functions ( 0.5%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    9 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   Editor.vcxproj -> D:\STUDYIENG\5semestr\OOD\Editor\Release\Editor.exe
