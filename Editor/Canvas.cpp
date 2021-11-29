@@ -13,6 +13,14 @@ void Canvas::DragAndDropPollEvent(sf::Event event, sf::RenderWindow* window)
 		{
 			m_ctrlPressed = true;
 		};
+		if (event.key.code == sf::Keyboard::Delete)
+		{
+			for (auto it = m_selectedShapes.begin(); it != m_selectedShapes.end(); it++)
+			{
+				m_shapes.remove(*it);
+			}
+			m_selectedShapes.clear();
+		};
 		if (m_ctrlPressed && event.key.code == sf::Keyboard::G && m_selectedShapes.size() > 1)
 		{
 			CompoundShape* comp = new CompoundShape();

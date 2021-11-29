@@ -74,6 +74,10 @@ public:
 	{
 		m_shape->ChangeOutlineThickness(size);
 	}
+	IShapeType GetType() override
+	{
+		return m_shape->GetType();
+	}
 private:
 	IShape* m_shape;
 };

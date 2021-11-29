@@ -21,6 +21,7 @@ public:
 			{
 				if (m_event.type == sf::Event::Closed)
 				{
+					m_canvas->SaveBinary();
 					m_window->close();
 				}
 

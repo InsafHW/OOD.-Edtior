@@ -67,3 +67,8 @@ void Circle::ChangeOutlineThickness(int size)
 {
 	m_circle.setOutlineThickness(size);
 }
+
+IShapeType Circle::GetType()
+{
+	return IShapeType::CIRCLE;
+}

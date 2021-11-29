@@ -17,6 +17,7 @@ public:
 	void ChangeFillColor(sf::Color color) override;
 	void ChangeOutlineColor(sf::Color color) override;
 	void ChangeOutlineThickness(int size) override;
+	IShapeType GetType() override;
 private:
 	sf::ConvexShape m_triangle;
 	bool m_isSelected = false;

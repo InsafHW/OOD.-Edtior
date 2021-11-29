@@ -165,12 +165,14 @@
     <ClCompile Include="Triangle.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="FilesShapeReader.h" />
     <ClInclude Include="Application.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="ButtonType.h" />
     <ClInclude Include="Circle.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="CompoundShape.h" />
+    <ClInclude Include="ReadBinary.h" />
     <ClInclude Include="ShapeReader.h" />
     <ClInclude Include="Canvas.h" />
     <ClInclude Include="IShape.h" />

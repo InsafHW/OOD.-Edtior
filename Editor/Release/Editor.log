@@ -1,48 +1,6 @@
 ﻿  Application.cpp
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\Toolbar.h(53,70): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
-          with
-          [
-              T=unsigned int
-          ]
-          and
-          [
-              T=float
-          ]
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\Toolbar.h(54,1): warning C4305: 'argument': truncation from 'int' to 'sf::Uint8'
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\Toolbar.h(54,60): warning C4309: 'argument': truncation of constant value
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\Toolbar.h(54,55): warning C4309: 'argument': truncation of constant value
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\Toolbar.h(87,80): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\Toolbar.h(87,59): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\Toolbar.h(94,30): warning C4018: '<': signed/unsigned mismatch
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\Toolbar.h(135,81): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\Toolbar.h(135,60): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\Toolbar.h(177,81): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\Toolbar.h(177,60): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-  main.cpp
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\ReadBinary.h(30,12): warning C4244: 'initializing': conversion from 'std::streamoff' to 'int', possible loss of data
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\Canvas.h(146,12): warning C4244: 'initializing': conversion from 'std::streamoff' to 'int', possible loss of data
 D:\STUDYIENG\5semestr\OOD\Editor\Editor\Toolbar.h(53,70): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
           with
           [
@@ -87,49 +45,98 @@ D:\STUDYIENG\5semestr\OOD\Editor\Editor\Toolbar.h(177,60): warning C4244: 'argum
               T=float
           ]
   Canvas.cpp
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\Canvas.cpp(72,81): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\ReadBinary.h(30,12): warning C4244: 'initializing': conversion from 'std::streamoff' to 'int', possible loss of data
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\Canvas.h(146,12): warning C4244: 'initializing': conversion from 'std::streamoff' to 'int', possible loss of data
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\Canvas.cpp(80,81): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\Canvas.cpp(72,60): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\Canvas.cpp(80,60): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\Canvas.cpp(185,81): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\Canvas.cpp(193,81): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\Canvas.cpp(185,60): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\Canvas.cpp(193,60): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\Canvas.cpp(210,81): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\Canvas.cpp(218,81): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\Canvas.cpp(210,60): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\Canvas.cpp(218,60): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\Canvas.cpp(234,81): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\Canvas.cpp(242,81): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-D:\STUDYIENG\5semestr\OOD\Editor\Editor\Canvas.cpp(234,60): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\Canvas.cpp(242,60): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+  main.cpp
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\ReadBinary.h(30,12): warning C4244: 'initializing': conversion from 'std::streamoff' to 'int', possible loss of data
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\Canvas.h(146,12): warning C4244: 'initializing': conversion from 'std::streamoff' to 'int', possible loss of data
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\Toolbar.h(53,70): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\Toolbar.h(54,1): warning C4305: 'argument': truncation from 'int' to 'sf::Uint8'
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\Toolbar.h(54,60): warning C4309: 'argument': truncation of constant value
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\Toolbar.h(54,55): warning C4309: 'argument': truncation of constant value
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\Toolbar.h(87,80): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\Toolbar.h(87,59): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\Toolbar.h(94,30): warning C4018: '<': signed/unsigned mismatch
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\Toolbar.h(135,81): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\Toolbar.h(135,60): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\Toolbar.h(177,81): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\Toolbar.h(177,60): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
   Generating code
-  196 of 575 functions (34.1%) were compiled, the rest were copied from previous compilation.
-    1 functions were new in current compilation
-    11 functions had inline decision re-evaluated but remain unchanged
+D:\STUDYIENG\5semestr\OOD\Editor\Editor\FilesShapeReader.h(19): warning C4172: returning address of local variable or temporary: input
+  28 of 601 functions ( 4.7%) were compiled, the rest were copied from previous compilation.
+    15 functions were new in current compilation
+    62 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   Editor.vcxproj -> D:\STUDYIENG\5semestr\OOD\Editor\Release\Editor.exe
