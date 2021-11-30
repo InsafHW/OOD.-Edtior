@@ -11,18 +11,11 @@
 #include "Triangle.h"
 #include "Circle.h"
 #include <vector>
-#include "ReadBinary.h"
-
-
-struct SaveDataBinary
-{
-	float topLeftX;
-	float topLeftY;
-	float width;
-	float height;
-	IShapeType type;
-	sf::Color fillColor;
-};
+#include "BinaryReader.h"
+#include "SaveStrategy.h"
+#include "SaveBinaryStrategy.h"
+#include "SaveTxtStrategy.h"
+#include "TxtReader.h"
 
 struct ShapeState
 {
@@ -78,12 +71,8 @@ public:
 		: m_shapes(shapes),
 		m_type(StateType::DRAG_AND_DROP)
 	{
-		m_shapes = m_binaryReader.GetShapes();
-		/*for (auto it = fileShapes.begin(); it != fileShapes.end(); it++)
-		{
-			m_shapes.push_back(*it);
-		}*/
 		m_history.Push(SaveState());
+		SetSaveStrategy(std::make_unique<SaveBinaryStrategy>());
 		//SetDragAndDropStateMan();
 	}
 
@@ -160,7 +149,7 @@ public:
 
 	CanvasMemento SaveState()
 	{
-		std::cout << "Saving..." << std::endl;
+		std::cout << "Saving state..." << std::endl;
 		return CanvasMemento(m_shapes, m_selectedShapes);
 	};
 
@@ -177,35 +166,25 @@ public:
 		m_selectedShapes = memento.m_selectedShapes;
 	};
 
-	void SaveBinary()
+	void SaveIntoFile()
 	{
-		std::ifstream inp("data.bin", std::ios_base::in | std::ios_base::out);
-		inp.close();
+		std::cout << "Saving into file..." << std::endl;
+		m_saveStrategy->SaveFile(m_shapes);
+	};
 
-		std::ofstream out;
-		out.open("data.bin", std::ios::binary);
-		std::cout << m_shapes.size() << std::endl << std::endl;
-		for (auto it = m_shapes.begin(); it != m_shapes.end(); it++)
-		{
-			auto x = (*it)->GetShapes();
-			std::cout << "1";
-			for (auto innerIt = x.begin(); innerIt != x.end(); innerIt++)
-			{
-				auto bounds = (*innerIt)->GetGlobalBounds();
-				SaveDataBinary data;
-				data.topLeftX = bounds.left;
-				data.topLeftY = bounds.top;
-				data.height = bounds.height;
-				data.width = bounds.width;
-				data.type = (*innerIt)->GetType();
-				data.fillColor = (*innerIt)->GetFillColor();
+	void SetSaveStrategy(std::unique_ptr<SaveStrategy>&& saveBehavior)
+	{
+		m_saveStrategy = std::move(saveBehavior);
+	};
 
-				out.write((const char*)&data, sizeof(data));
-			}
-		}
-		std::cout << std::endl;
+	void ReadFromTxt()
+	{
+		m_shapes = m_txtReader.GetShapes();
+	};
 
-		out.close();
+	void ReadFromBin()
+	{
+		m_shapes = m_binaryReader.GetShapes();
 	};
 
 private:
@@ -228,7 +207,10 @@ private:
 	int m_size;
 
 	CanvasHistory m_history;
-	ReadBinary m_binaryReader;
+	BinaryReader m_binaryReader;
+	TxtReader m_txtReader;
+
+	std::unique_ptr<SaveStrategy> m_saveStrategy;
 
 	void DragAndDropPollEvent(sf::Event event, sf::RenderWindow* window);
 	void AddRectanglePollEvent(sf::Event event, sf::RenderWindow* window);

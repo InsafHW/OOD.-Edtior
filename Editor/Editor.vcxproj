@@ -166,14 +166,20 @@
     <ClCompile Include="Triangle.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Application.h" />
+    <ClInclude Include="Builder.h" />
+    <ClInclude Include="CircleBuilder.h" />
+    <ClInclude Include="Editor.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="ButtonType.h" />
     <ClInclude Include="Circle.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="CompoundShape.h" />
     <ClInclude Include="FileShapeReader.h" />
-    <ClInclude Include="ReadBinary.h" />
+    <ClInclude Include="BinaryReader.h" />
+    <ClInclude Include="RectangleBuilder.h" />
+    <ClInclude Include="SaveBinaryStrategy.h" />
+    <ClInclude Include="SaveStrategy.h" />
+    <ClInclude Include="SaveTxtStrategy.h" />
     <ClInclude Include="ShapeReader.h" />
     <ClInclude Include="Canvas.h" />
     <ClInclude Include="IShape.h" />
@@ -182,6 +188,8 @@
     <ClInclude Include="StateType.h" />
     <ClInclude Include="Toolbar.h" />
     <ClInclude Include="Triangle.h" />
+    <ClInclude Include="TriangleBuilder.h" />
+    <ClInclude Include="TxtReader.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="input.txt" />

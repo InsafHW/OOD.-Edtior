@@ -22,14 +22,16 @@ public:
 		Button fillColorBtn("./img/fillColor.png", (BUTTON_SIZE + MARGIN) * 4, 0, BUTTON_SIZE, ButtonType::CHAGNE_FILL_COLOR_TYPE);
 		Button outlineColorBtn("./img/outlineColor.png", (BUTTON_SIZE + MARGIN) * 5, 0, BUTTON_SIZE, ButtonType::CHANGE_OUTLINE_COLOR_TYPE);
 		Button thicknessBtn("./img/thickness.png", (BUTTON_SIZE + MARGIN) * 6, 0, BUTTON_SIZE, ButtonType::CHANGE_OUTLINE_THICKNESS_TYPE);
+		Button readTxtFile("./img/txt.png", (BUTTON_SIZE + MARGIN) * 7, 0, BUTTON_SIZE, ButtonType::READ_TXT);
+		Button readBinFile("./img/bin.png", (BUTTON_SIZE + MARGIN) * 8, 0, BUTTON_SIZE, ButtonType::READ_BIN);
 
-		Button oneThicknessBtn("./img/one.png", (BUTTON_SIZE + MARGIN) * 7, 0, BUTTON_SIZE, ButtonType::THICKNESS_ONE);
-		Button twoThicknessBtn("./img/two.png", (BUTTON_SIZE + MARGIN) * 8, 0, BUTTON_SIZE, ButtonType::THICKNESS_TWO);
-		Button threeThicknessBtn("./img/three.png", (BUTTON_SIZE + MARGIN) * 9, 0, BUTTON_SIZE, ButtonType::THICKNESS_THREE);
+		Button oneThicknessBtn("./img/one.png", (BUTTON_SIZE + MARGIN) * 9, 0, BUTTON_SIZE, ButtonType::THICKNESS_ONE);
+		Button twoThicknessBtn("./img/two.png", (BUTTON_SIZE + MARGIN) * 10, 0, BUTTON_SIZE, ButtonType::THICKNESS_TWO);
+		Button threeThicknessBtn("./img/three.png", (BUTTON_SIZE + MARGIN) * 11, 0, BUTTON_SIZE, ButtonType::THICKNESS_THREE);
 
-		Button purpleColorBtn("./img/purple.png", (BUTTON_SIZE + MARGIN) * 7, 0, BUTTON_SIZE, ButtonType::PURPLE_COLOR);
-		Button yellowColorBtn("./img/yellow.png", (BUTTON_SIZE + MARGIN) * 8, 0, BUTTON_SIZE, ButtonType::YELLOW_COLOR);
-		Button redColorBtn("./img/orange.png", (BUTTON_SIZE + MARGIN) * 9, 0, BUTTON_SIZE, ButtonType::ORANGE_COLOR);
+		Button purpleColorBtn("./img/purple.png", (BUTTON_SIZE + MARGIN) * 9, 0, BUTTON_SIZE, ButtonType::PURPLE_COLOR);
+		Button yellowColorBtn("./img/yellow.png", (BUTTON_SIZE + MARGIN) * 10, 0, BUTTON_SIZE, ButtonType::YELLOW_COLOR);
+		Button redColorBtn("./img/orange.png", (BUTTON_SIZE + MARGIN) * 11, 0, BUTTON_SIZE, ButtonType::ORANGE_COLOR);
 
 		m_buttons.push_back(createRectangleBtn);
 		m_buttons.push_back(createTriangleBtn);
@@ -38,6 +40,8 @@ public:
 		m_buttons.push_back(fillColorBtn);
 		m_buttons.push_back(outlineColorBtn);
 		m_buttons.push_back(thicknessBtn);
+		m_buttons.push_back(readTxtFile);
+		m_buttons.push_back(readBinFile);
 
 		m_thicknesses.push_back(oneThicknessBtn);
 		m_thicknesses.push_back(twoThicknessBtn);
@@ -86,45 +90,59 @@ public:
 			{
 				if ((*it).GetGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y))
 				{
-					(*it).Select();
-					for (int i = 0; i < idx; i++)
+					if ((*it).GetButtonType() == ButtonType::READ_BIN)
 					{
-						(*std::next(m_buttons.begin(), i)).UnSelect();
+						m_canvas->ReadFromBin();
+						std::cout << "READING BIN..";
 					}
-					for (int i = idx + 1; i < m_buttons.size(); i++)
+					else if ((*it).GetButtonType() == ButtonType::READ_TXT)
 					{
-						(*std::next(m_buttons.begin(), i)).UnSelect();
+						m_canvas->ReadFromTxt();
+						std::cout << "READING TXT..";
 					}
-					ResetExtra();
-					switch ((*it).GetButtonType())
+					else
 					{
-					case ButtonType::CREATE_RECTANGLE:
-						m_canvas->SetAddRectangleState();
-						break;
-					case ButtonType::CREATE_TRIANGLE:
-						m_canvas->SetAddTriangleState();
-						break;
-					case ButtonType::CREATE_CIRCLE:
-						m_canvas->SetAddCircleState();
-						break;
-					case ButtonType::DRAG_AND_DROP:
-						m_canvas->SetDragAndDropState();
-						break;
-					case ButtonType::CHAGNE_FILL_COLOR_TYPE:
-						m_showColors = true;
-						m_isFill = true;
-						m_canvas->SetChangeFillColorState(sf::Color::Color(138, 43, 226));
-						break;
-					case ButtonType::CHANGE_OUTLINE_COLOR_TYPE:
-						m_showColors = true;
-						m_isOutline = true;
-						m_canvas->SetChangeOutlineColorState(sf::Color::Color(138, 43, 226));
-						break;
-					case ButtonType::CHANGE_OUTLINE_THICKNESS_TYPE:
-						m_showThicknesses = true;
-						m_canvas->SetChangeOutlineThicknessState(1);
-						break;
+						(*it).Select();
+						for (int i = 0; i < idx; i++)
+						{
+							(*std::next(m_buttons.begin(), i)).UnSelect();
+						}
+						for (int i = idx + 1; i < m_buttons.size(); i++)
+						{
+							(*std::next(m_buttons.begin(), i)).UnSelect();
+						}
+						ResetExtra();
+						switch ((*it).GetButtonType())
+						{
+						case ButtonType::CREATE_RECTANGLE:
+							m_canvas->SetAddRectangleState();
+							break;
+						case ButtonType::CREATE_TRIANGLE:
+							m_canvas->SetAddTriangleState();
+							break;
+						case ButtonType::CREATE_CIRCLE:
+							m_canvas->SetAddCircleState();
+							break;
+						case ButtonType::DRAG_AND_DROP:
+							m_canvas->SetDragAndDropState();
+							break;
+						case ButtonType::CHAGNE_FILL_COLOR_TYPE:
+							m_showColors = true;
+							m_isFill = true;
+							m_canvas->SetChangeFillColorState(sf::Color::Color(138, 43, 226));
+							break;
+						case ButtonType::CHANGE_OUTLINE_COLOR_TYPE:
+							m_showColors = true;
+							m_isOutline = true;
+							m_canvas->SetChangeOutlineColorState(sf::Color::Color(138, 43, 226));
+							break;
+						case ButtonType::CHANGE_OUTLINE_THICKNESS_TYPE:
+							m_showThicknesses = true;
+							m_canvas->SetChangeOutlineThicknessState(1);
+							break;
+						}
 					}
+
 				}
 				idx++;
 			}

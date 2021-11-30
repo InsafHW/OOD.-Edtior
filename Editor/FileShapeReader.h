@@ -3,25 +3,33 @@
 #include <iostream>
 #include <fstream>
 #include "CompoundShape.h"
+#include "Builder.h"
 
 class FilesShapeReader
 {
 public:
 	std::list<CompoundShape*> GetShapes() const
 	{
-		std::ifstream& input = this->GetInputFile();
+		this->StartReading();
+		PrintReadingFileTypeHook();
+		EndlineHook();
 		return ReadShapes();
 	};
 
 protected:
-	std::ifstream& GetInputFile() const {
-		std::ifstream input;
-		return input;
+	void StartReading() const
+	{
+		std::cout << "Reading... ";
 	}
 
 	virtual std::list<CompoundShape*> ReadShapes() const = 0;
+	virtual void PrintReadingFileTypeHook() const {}
+	virtual void EndlineHook() const
+	{
+		std::cout << std::endl;
+	};
 
-	virtual void Hook1() const {}
-	virtual void Hook2() const {}
+private:
+	std::unique_ptr<Builder> m_builder;
 };
 

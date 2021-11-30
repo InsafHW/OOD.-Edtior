@@ -9,6 +9,7 @@ public:
 	float GetPerimeter() override;
 	float GetSquare() override;
 	sf::Color GetFillColor() override;
+	sf::Color GetOutlineColor() override;
 	void Draw(sf::RenderWindow* window) override;
 	Circle(double centerX, double centerY, double radius);
 	sf::FloatRect GetGlobalBounds() override;

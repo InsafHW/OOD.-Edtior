@@ -7,7 +7,6 @@ void Canvas::DragAndDropPollEvent(sf::Event event, sf::RenderWindow* window)
 	case sf::Event::KeyPressed:
 		if (m_ctrlPressed && event.key.code == sf::Keyboard::Z)
 		{
-			std::cout << "Restored" << std::endl;
 			RestoreState(m_history.Pop());
 		};
 		if (event.key.code == sf::Keyboard::LShift)
@@ -55,6 +54,16 @@ void Canvas::DragAndDropPollEvent(sf::Event event, sf::RenderWindow* window)
 				m_shapes.remove(compound);
 				delete compound;
 			}
+		};
+		if (m_ctrlPressed && event.key.code == sf::Keyboard::S)
+		{
+			SetSaveStrategy(std::make_unique<SaveBinaryStrategy>());
+			SaveIntoFile();
+		};
+		if (m_ctrlPressed && event.key.code == sf::Keyboard::B)
+		{
+			SetSaveStrategy(std::make_unique<SaveTxtStrategy>());
+			SaveIntoFile();
 		};
 		break;
 	case sf::Event::KeyReleased:

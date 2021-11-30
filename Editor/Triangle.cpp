@@ -16,6 +16,11 @@ sf::Color Triangle::GetFillColor()
 	return m_triangle.getFillColor();
 }
 
+sf::Color Triangle::GetOutlineColor()
+{
+	return m_triangle.getOutlineColor();
+}
+
 void Triangle::Draw(sf::RenderWindow* window)
 {
 	window->draw(m_triangle);

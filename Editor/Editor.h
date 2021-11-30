@@ -2,16 +2,16 @@
 #include "Canvas.h"
 #include "Toolbar.h"
 
-class Application
+class Editor
 {
 public:
-	static Application& GetInstance(std::list<CompoundShape*> shapes)
+	static Editor& GetInstance(std::list<CompoundShape*> shapes)
 	{
-		static Application instance(shapes);
+		static Editor instance(shapes);
 		return instance;
 	};
-	Application(const Application&) = delete;
-	Application& operator=(const Application&) = delete;
+	Editor(const Editor&) = delete;
+	Editor& operator=(const Editor&) = delete;
 
 	void Start()
 	{
@@ -22,7 +22,7 @@ public:
 				if (m_event.type == sf::Event::Closed)
 				{
 					m_window->close();
-					m_canvas->SaveBinary();
+					m_canvas->SaveIntoFile();
 				}
 
 				m_toolbar->PollEventAndUpdate(m_event, m_window);
@@ -32,15 +32,15 @@ public:
 
 			m_window->clear();
 
-			m_toolbar->Draw(m_window);
 			m_canvas->Draw(m_window);
+			m_toolbar->Draw(m_window);
 
 			m_window->display();
 		}
 	};
 
 private:
-	Application(std::list<CompoundShape*> shapes)
+	Editor(std::list<CompoundShape*> shapes)
 	{
 		m_canvas = new Canvas(shapes);
 		m_toolbar = new Toolbar(m_canvas);

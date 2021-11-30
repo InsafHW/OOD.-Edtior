@@ -7,6 +7,7 @@ public:
 	float GetPerimeter() override;
 	float GetSquare() override;
 	sf::Color GetFillColor() override;
+	sf::Color GetOutlineColor() override;
 	void Draw(sf::RenderWindow* window) override;
 	Rectangle(double topLeftX, double topLeftY, double bottomRightX, double bottomRightY);
 	sf::FloatRect GetGlobalBounds() override;
