@@ -10,12 +10,12 @@ int main()
 
 	std::list<CompoundShape*> shapes;
 
-	for (auto it = input_shapes.begin(); it != input_shapes.end(); it++)
-	{
-		CompoundShape* shape = new CompoundShape();
-		shape->Add(new OutlineDecorator(*it));
-		shapes.push_back(shape);
-	}
+	//for (auto it = input_shapes.begin(); it != input_shapes.end(); it++)
+	//{
+	//	CompoundShape* shape = new CompoundShape();
+	//	shape->Add(new OutlineDecorator(*it));
+	//	shapes.push_back(shape);
+	//}
 
 	auto& instance = Application::GetInstance(shapes);
 	instance.Start();

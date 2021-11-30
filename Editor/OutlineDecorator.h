@@ -79,6 +79,11 @@ public:
 		return m_shape->GetFillColor();
 	};
 
+	IShapeType GetType() override
+	{
+		return m_shape->GetType();
+	};
+
 private:
 	IShape* m_shape;
 };

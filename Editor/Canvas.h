@@ -7,9 +7,22 @@
 #include "StateType.h"
 #include "OutlineDecorator.h"
 #include "Rectangle.h"
+#include <fstream>
 #include "Triangle.h"
 #include "Circle.h"
 #include <vector>
+#include "ReadBinary.h"
+
+
+struct SaveDataBinary
+{
+	float topLeftX;
+	float topLeftY;
+	float width;
+	float height;
+	IShapeType type;
+	sf::Color fillColor;
+};
 
 struct ShapeState
 {
@@ -65,6 +78,11 @@ public:
 		: m_shapes(shapes),
 		m_type(StateType::DRAG_AND_DROP)
 	{
+		m_shapes = m_binaryReader.GetShapes();
+		/*for (auto it = fileShapes.begin(); it != fileShapes.end(); it++)
+		{
+			m_shapes.push_back(*it);
+		}*/
 		m_history.Push(SaveState());
 		//SetDragAndDropStateMan();
 	}
@@ -159,6 +177,37 @@ public:
 		m_selectedShapes = memento.m_selectedShapes;
 	};
 
+	void SaveBinary()
+	{
+		std::ifstream inp("data.bin", std::ios_base::in | std::ios_base::out);
+		inp.close();
+
+		std::ofstream out;
+		out.open("data.bin", std::ios::binary);
+		std::cout << m_shapes.size() << std::endl << std::endl;
+		for (auto it = m_shapes.begin(); it != m_shapes.end(); it++)
+		{
+			auto x = (*it)->GetShapes();
+			std::cout << "1";
+			for (auto innerIt = x.begin(); innerIt != x.end(); innerIt++)
+			{
+				auto bounds = (*innerIt)->GetGlobalBounds();
+				SaveDataBinary data;
+				data.topLeftX = bounds.left;
+				data.topLeftY = bounds.top;
+				data.height = bounds.height;
+				data.width = bounds.width;
+				data.type = (*innerIt)->GetType();
+				data.fillColor = (*innerIt)->GetFillColor();
+
+				out.write((const char*)&data, sizeof(data));
+			}
+		}
+		std::cout << std::endl;
+
+		out.close();
+	};
+
 private:
 	StateType m_type;
 	sf::Vector2f m_mouseShapeOffset;
@@ -179,6 +228,7 @@ private:
 	int m_size;
 
 	CanvasHistory m_history;
+	ReadBinary m_binaryReader;
 
 	void DragAndDropPollEvent(sf::Event event, sf::RenderWindow* window);
 	void AddRectanglePollEvent(sf::Event event, sf::RenderWindow* window);

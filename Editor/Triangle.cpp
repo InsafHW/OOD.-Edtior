@@ -77,3 +77,8 @@ void Triangle::ChangeOutlineThickness(int size)
 {
 	m_triangle.setOutlineThickness(size);
 }
+
+IShapeType Triangle::GetType()
+{
+	return IShapeType::TRIANGLE;
+}

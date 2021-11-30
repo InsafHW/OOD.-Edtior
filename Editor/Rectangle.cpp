@@ -75,3 +75,8 @@ void Rectangle::ChangeOutlineThickness(int size)
 {
 	m_rectangle.setOutlineThickness(size);
 }
+
+IShapeType Rectangle::GetType()
+{
+	return IShapeType::RECTANGLE;
+}

@@ -1,6 +1,13 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
+enum class IShapeType
+{
+	CIRCLE,
+	RECTANGLE,
+	TRIANGLE
+};
+
 class IShape
 {
 public:
@@ -17,5 +24,6 @@ public:
 	virtual void ChangeFillColor(sf::Color color) = 0;
 	virtual void ChangeOutlineColor(sf::Color color) = 0;
 	virtual void ChangeOutlineThickness(int size) = 0;
+	virtual IShapeType GetType() = 0;
 };
 

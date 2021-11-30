@@ -22,6 +22,7 @@ public:
 				if (m_event.type == sf::Event::Closed)
 				{
 					m_window->close();
+					m_canvas->SaveBinary();
 				}
 
 				m_toolbar->PollEventAndUpdate(m_event, m_window);

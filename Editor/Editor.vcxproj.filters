@@ -25,6 +25,9 @@
     <Filter Include="Header Files\Canvas">
       <UniqueIdentifier>{d0f9b340-f5e2-4507-a141-8a5680133c79}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\TemplateMethod">
+      <UniqueIdentifier>{91a886d4-6a93-475c-932e-0ba3270f20c6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="IShape.cpp">
@@ -55,6 +58,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Canvas.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FileShapeReader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -100,6 +106,12 @@
     </ClInclude>
     <ClInclude Include="StateType.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FileShapeReader.h">
+      <Filter>Header Files\TemplateMethod</Filter>
+    </ClInclude>
+    <ClInclude Include="ReadBinary.h">
+      <Filter>Header Files\TemplateMethod</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
