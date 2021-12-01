@@ -17,6 +17,11 @@ sf::Color Rectangle::GetFillColor()
 	return m_rectangle.getFillColor();
 }
 
+sf::Color Rectangle::GetOutlineColor()
+{
+	return m_rectangle.getOutlineColor();
+}
+
 void Rectangle::Draw(sf::RenderWindow* window)
 {
 	window->draw(m_rectangle);
@@ -74,4 +79,9 @@ void Rectangle::ChangeOutlineColor(sf::Color color)
 void Rectangle::ChangeOutlineThickness(int size)
 {
 	m_rectangle.setOutlineThickness(size);
+}
+
+IShapeType Rectangle::GetType()
+{
+	return IShapeType::RECTANGLE;
 }

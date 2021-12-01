@@ -9,6 +9,7 @@ public:
 	float GetPerimeter() override;
 	float GetSquare() override;
 	sf::Color GetFillColor() override;
+	sf::Color GetOutlineColor() override;
 	void Draw(sf::RenderWindow* window) override;
 	Circle(double centerX, double centerY, double radius);
 	sf::FloatRect GetGlobalBounds() override;
@@ -20,6 +21,7 @@ public:
 	void ChangeFillColor(sf::Color color) override;
 	void ChangeOutlineColor(sf::Color color) override;
 	void ChangeOutlineThickness(int size) override;
+	IShapeType GetType() override;
 private:
 	sf::CircleShape m_circle;
 	bool m_isSelected = false;

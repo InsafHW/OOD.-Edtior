@@ -7,6 +7,7 @@ public:
 	float GetPerimeter() override;
 	float GetSquare() override;
 	sf::Color GetFillColor() override;
+	sf::Color GetOutlineColor() override;
 	void Draw(sf::RenderWindow* window) override;
 	Triangle(double aX, double aY, double bX, double bY, double cX, double cY);
 	sf::FloatRect GetGlobalBounds() override;
@@ -18,6 +19,7 @@ public:
 	void ChangeFillColor(sf::Color color) override;
 	void ChangeOutlineColor(sf::Color color) override;
 	void ChangeOutlineThickness(int size) override;
+	IShapeType GetType() override;
 private:
 	sf::ConvexShape m_triangle;
 	bool m_isSelected = false;

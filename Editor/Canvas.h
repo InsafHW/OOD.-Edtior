@@ -7,9 +7,15 @@
 #include "StateType.h"
 #include "OutlineDecorator.h"
 #include "Rectangle.h"
+#include <fstream>
 #include "Triangle.h"
 #include "Circle.h"
 #include <vector>
+#include "BinaryReader.h"
+#include "SaveStrategy.h"
+#include "SaveBinaryStrategy.h"
+#include "SaveTxtStrategy.h"
+#include "TxtReader.h"
 
 struct ShapeState
 {
@@ -66,6 +72,7 @@ public:
 		m_type(StateType::DRAG_AND_DROP)
 	{
 		m_history.Push(SaveState());
+		SetSaveStrategy(std::make_unique<SaveBinaryStrategy>());
 		//SetDragAndDropStateMan();
 	}
 
@@ -142,7 +149,7 @@ public:
 
 	CanvasMemento SaveState()
 	{
-		std::cout << "Saving..." << std::endl;
+		std::cout << "Saving state..." << std::endl;
 		return CanvasMemento(m_shapes, m_selectedShapes);
 	};
 
@@ -157,6 +164,27 @@ public:
 		}
 
 		m_selectedShapes = memento.m_selectedShapes;
+	};
+
+	void SaveIntoFile()
+	{
+		std::cout << "Saving into file..." << std::endl;
+		m_saveStrategy->SaveFile(m_shapes);
+	};
+
+	void SetSaveStrategy(std::unique_ptr<SaveStrategy>&& saveBehavior)
+	{
+		m_saveStrategy = std::move(saveBehavior);
+	};
+
+	void ReadFromTxt()
+	{
+		m_shapes = m_txtReader.GetShapes();
+	};
+
+	void ReadFromBin()
+	{
+		m_shapes = m_binaryReader.GetShapes();
 	};
 
 private:
@@ -179,6 +207,10 @@ private:
 	int m_size;
 
 	CanvasHistory m_history;
+	BinaryReader m_binaryReader;
+	TxtReader m_txtReader;
+
+	std::unique_ptr<SaveStrategy> m_saveStrategy;
 
 	void DragAndDropPollEvent(sf::Event event, sf::RenderWindow* window);
 	void AddRectanglePollEvent(sf::Event event, sf::RenderWindow* window);

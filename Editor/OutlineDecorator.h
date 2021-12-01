@@ -79,6 +79,14 @@ public:
 		return m_shape->GetFillColor();
 	};
 
+	IShapeType GetType() override
+	{
+		return m_shape->GetType();
+	};
+	sf::Color GetOutlineColor() override
+	{
+		return m_shape->GetOutlineColor();
+	};
 private:
 	IShape* m_shape;
 };

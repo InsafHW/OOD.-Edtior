@@ -15,6 +15,11 @@ sf::Color Circle::GetFillColor()
 	return m_circle.getFillColor();
 }
 
+sf::Color Circle::GetOutlineColor()
+{
+	return m_circle.getOutlineColor();
+}
+
 void Circle::Draw(sf::RenderWindow* window)
 {
 	window->draw(m_circle);
@@ -71,4 +76,9 @@ void Circle::ChangeOutlineColor(sf::Color color)
 void Circle::ChangeOutlineThickness(int size)
 {
 	m_circle.setOutlineThickness(size);
+}
+
+IShapeType Circle::GetType()
+{
+	return IShapeType::CIRCLE;
 }

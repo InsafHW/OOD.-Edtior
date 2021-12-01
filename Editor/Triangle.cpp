@@ -16,6 +16,11 @@ sf::Color Triangle::GetFillColor()
 	return m_triangle.getFillColor();
 }
 
+sf::Color Triangle::GetOutlineColor()
+{
+	return m_triangle.getOutlineColor();
+}
+
 void Triangle::Draw(sf::RenderWindow* window)
 {
 	window->draw(m_triangle);
@@ -76,4 +81,9 @@ void Triangle::ChangeOutlineColor(sf::Color color)
 void Triangle::ChangeOutlineThickness(int size)
 {
 	m_triangle.setOutlineThickness(size);
+}
+
+IShapeType Triangle::GetType()
+{
+	return IShapeType::TRIANGLE;
 }

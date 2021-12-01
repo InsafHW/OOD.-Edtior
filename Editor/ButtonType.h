@@ -14,5 +14,7 @@ enum class ButtonType
 	PURPLE_COLOR,
 	YELLOW_COLOR,
 	ORANGE_COLOR,
+	READ_TXT,
+	READ_BIN,
 };
 

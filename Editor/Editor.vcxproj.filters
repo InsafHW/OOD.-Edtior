@@ -25,6 +25,18 @@
     <Filter Include="Header Files\Canvas">
       <UniqueIdentifier>{d0f9b340-f5e2-4507-a141-8a5680133c79}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\TemplateMethod">
+      <UniqueIdentifier>{91a886d4-6a93-475c-932e-0ba3270f20c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Shapes">
+      <UniqueIdentifier>{2b4e762b-95be-48b3-a173-aeec380e58fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\SaveStrategy">
+      <UniqueIdentifier>{54e5c58f-65c8-49a2-a77c-fb82857abaf6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Builder">
+      <UniqueIdentifier>{0d378ed3-f34b-4172-b9d1-e33704fd4ed7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="IShape.cpp">
@@ -54,37 +66,19 @@
     <ClCompile Include="Application.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Canvas.cpp">
+    <ClCompile Include="FileShapeReader.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Canvas.cpp">
+      <Filter>Header Files\Canvas</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="IShape.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Circle.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Rectangle.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="OutlineDecorator.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CompoundShape.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Triangle.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ShapeReader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Toolbar.h">
       <Filter>Header Files\Toolbar</Filter>
-    </ClInclude>
-    <ClInclude Include="Application.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Button.h">
       <Filter>Header Files\Toolbar\Button</Filter>
@@ -100,6 +94,57 @@
     </ClInclude>
     <ClInclude Include="StateType.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FileShapeReader.h">
+      <Filter>Header Files\TemplateMethod</Filter>
+    </ClInclude>
+    <ClInclude Include="Editor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IShape.h">
+      <Filter>Header Files\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="CompoundShape.h">
+      <Filter>Header Files\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="OutlineDecorator.h">
+      <Filter>Header Files\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="Triangle.h">
+      <Filter>Header Files\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="Circle.h">
+      <Filter>Header Files\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="Rectangle.h">
+      <Filter>Header Files\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="BinaryReader.h">
+      <Filter>Header Files\TemplateMethod</Filter>
+    </ClInclude>
+    <ClInclude Include="SaveStrategy.h">
+      <Filter>Header Files\SaveStrategy</Filter>
+    </ClInclude>
+    <ClInclude Include="SaveBinaryStrategy.h">
+      <Filter>Header Files\SaveStrategy</Filter>
+    </ClInclude>
+    <ClInclude Include="SaveTxtStrategy.h">
+      <Filter>Header Files\SaveStrategy</Filter>
+    </ClInclude>
+    <ClInclude Include="Builder.h">
+      <Filter>Header Files\Builder</Filter>
+    </ClInclude>
+    <ClInclude Include="CircleBuilder.h">
+      <Filter>Header Files\Builder</Filter>
+    </ClInclude>
+    <ClInclude Include="RectangleBuilder.h">
+      <Filter>Header Files\Builder</Filter>
+    </ClInclude>
+    <ClInclude Include="TriangleBuilder.h">
+      <Filter>Header Files\Builder</Filter>
+    </ClInclude>
+    <ClInclude Include="TxtReader.h">
+      <Filter>Header Files\TemplateMethod</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
