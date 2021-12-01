@@ -166,8 +166,15 @@
     <ClCompile Include="Triangle.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AddCircleState.h" />
+    <ClInclude Include="AddRectangleState.h" />
+    <ClInclude Include="AddTriangleState.h" />
     <ClInclude Include="Builder.h" />
+    <ClInclude Include="ChangeFillColorState.h" />
+    <ClInclude Include="ChangeOutlineColorState.h" />
+    <ClInclude Include="ChangeOutlineThicknessState.h" />
     <ClInclude Include="CircleBuilder.h" />
+    <ClInclude Include="DragAndDropState.h" />
     <ClInclude Include="Editor.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="ButtonType.h" />
@@ -176,6 +183,8 @@
     <ClInclude Include="CompoundShape.h" />
     <ClInclude Include="FileShapeReader.h" />
     <ClInclude Include="BinaryReader.h" />
+    <ClInclude Include="ICanvas.h" />
+    <ClInclude Include="IState.h" />
     <ClInclude Include="RectangleBuilder.h" />
     <ClInclude Include="SaveBinaryStrategy.h" />
     <ClInclude Include="SaveStrategy.h" />
@@ -185,7 +194,6 @@
     <ClInclude Include="IShape.h" />
     <ClInclude Include="OutlineDecorator.h" />
     <ClInclude Include="Rectangle.h" />
-    <ClInclude Include="StateType.h" />
     <ClInclude Include="Toolbar.h" />
     <ClInclude Include="Triangle.h" />
     <ClInclude Include="TriangleBuilder.h" />

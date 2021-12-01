@@ -37,6 +37,9 @@
     <Filter Include="Header Files\Builder">
       <UniqueIdentifier>{0d378ed3-f34b-4172-b9d1-e33704fd4ed7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\State">
+      <UniqueIdentifier>{1bf0e85e-1356-4590-976f-cf91567ffd94}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="IShape.cpp">
@@ -92,9 +95,6 @@
     <ClInclude Include="Canvas.h">
       <Filter>Header Files\Canvas</Filter>
     </ClInclude>
-    <ClInclude Include="StateType.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="FileShapeReader.h">
       <Filter>Header Files\TemplateMethod</Filter>
     </ClInclude>
@@ -145,6 +145,33 @@
     </ClInclude>
     <ClInclude Include="TxtReader.h">
       <Filter>Header Files\TemplateMethod</Filter>
+    </ClInclude>
+    <ClInclude Include="IState.h">
+      <Filter>Header Files\State</Filter>
+    </ClInclude>
+    <ClInclude Include="AddCircleState.h">
+      <Filter>Header Files\State</Filter>
+    </ClInclude>
+    <ClInclude Include="AddRectangleState.h">
+      <Filter>Header Files\State</Filter>
+    </ClInclude>
+    <ClInclude Include="DragAndDropState.h">
+      <Filter>Header Files\State</Filter>
+    </ClInclude>
+    <ClInclude Include="ICanvas.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AddTriangleState.h">
+      <Filter>Header Files\State</Filter>
+    </ClInclude>
+    <ClInclude Include="ChangeFillColorState.h">
+      <Filter>Header Files\State</Filter>
+    </ClInclude>
+    <ClInclude Include="ChangeOutlineColorState.h">
+      <Filter>Header Files\State</Filter>
+    </ClInclude>
+    <ClInclude Include="ChangeOutlineThicknessState.h">
+      <Filter>Header Files\State</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
