@@ -17,4 +17,3 @@ enum class ButtonType
 	READ_TXT,
 	READ_BIN,
 };
-

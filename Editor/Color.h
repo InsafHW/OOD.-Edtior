@@ -5,4 +5,3 @@ enum class Color
 	YELLOW,
 	TRANSPARENT,
 };
-

@@ -153,23 +153,42 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Application.cpp" />
+    <ClCompile Include="AddCircleState.cpp" />
+    <ClCompile Include="AddRectangleState.cpp" />
+    <ClCompile Include="AddTriangleState.cpp" />
+    <ClCompile Include="BinaryReader.cpp" />
+    <ClCompile Include="Button.cpp" />
+    <ClCompile Include="Editor.cpp" />
+    <ClCompile Include="ChangeFillColorState.cpp" />
+    <ClCompile Include="ChangeOutlineColorState.cpp" />
+    <ClCompile Include="ChangeOutlineThicknessState.cpp" />
+    <ClCompile Include="CircleBuilder.cpp" />
+    <ClCompile Include="CanvasHistory.cpp" />
+    <ClCompile Include="CanvasMemento.cpp" />
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="CompoundShape.cpp" />
+    <ClCompile Include="DragAndDropState.cpp" />
     <ClCompile Include="FileShapeReader.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="IShape.cpp" />
     <ClCompile Include="OutlineDecorator.cpp" />
     <ClCompile Include="Rectangle.cpp" />
+    <ClCompile Include="RectangleBuilder.cpp" />
+    <ClCompile Include="SaveBinaryStrategy.cpp" />
+    <ClCompile Include="SaveTxtStrategy.cpp" />
     <ClCompile Include="ShapeReader.cpp" />
     <ClCompile Include="Canvas.cpp" />
+    <ClCompile Include="Toolbar.cpp" />
     <ClCompile Include="Triangle.cpp" />
+    <ClCompile Include="TriangleBuilder.cpp" />
+    <ClCompile Include="TxtReader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AddCircleState.h" />
     <ClInclude Include="AddRectangleState.h" />
     <ClInclude Include="AddTriangleState.h" />
     <ClInclude Include="Builder.h" />
+    <ClInclude Include="CanvasHistory.h" />
+    <ClInclude Include="CanvasMemento.h" />
     <ClInclude Include="ChangeFillColorState.h" />
     <ClInclude Include="ChangeOutlineColorState.h" />
     <ClInclude Include="ChangeOutlineThicknessState.h" />

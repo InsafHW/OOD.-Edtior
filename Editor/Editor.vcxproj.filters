@@ -40,40 +40,121 @@
     <Filter Include="Header Files\State">
       <UniqueIdentifier>{1bf0e85e-1356-4590-976f-cf91567ffd94}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Memento">
+      <UniqueIdentifier>{b15eea31-7004-4b6b-a198-93ad07279992}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Memento">
+      <UniqueIdentifier>{0959579b-22f8-4b13-a582-b26181f36d82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Canvas">
+      <UniqueIdentifier>{14d42039-fcbc-4dfb-a040-d13695d18eca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Builder">
+      <UniqueIdentifier>{caad0c94-1e2a-4df2-b3ff-1c39a23ba1b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\State">
+      <UniqueIdentifier>{41ea1552-240e-48b3-ac5a-b3469e000c1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\SaveStrategy">
+      <UniqueIdentifier>{dc33ec59-4bff-4084-b8fb-a096f763989f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Shapes">
+      <UniqueIdentifier>{a9448480-3ea0-4607-8d6a-2acf6cd5c0a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\TemplateMethod">
+      <UniqueIdentifier>{5bbff8bd-08a8-4997-8ce2-74cbbed552d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Toolbar">
+      <UniqueIdentifier>{9d5de43b-2cb0-4883-9302-abbae0874385}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Toolbar\Button">
+      <UniqueIdentifier>{2faa3d1e-0be4-4d31-9a1c-05c01e7aabe7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="IShape.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Circle.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Rectangle.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="OutlineDecorator.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CompoundShape.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Triangle.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ShapeReader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Application.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="CanvasHistory.cpp">
+      <Filter>Source Files\Memento</Filter>
     </ClCompile>
-    <ClCompile Include="FileShapeReader.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="CanvasMemento.cpp">
+      <Filter>Source Files\Memento</Filter>
     </ClCompile>
     <ClCompile Include="Canvas.cpp">
-      <Filter>Header Files\Canvas</Filter>
+      <Filter>Source Files\Canvas</Filter>
+    </ClCompile>
+    <ClCompile Include="CircleBuilder.cpp">
+      <Filter>Source Files\Builder</Filter>
+    </ClCompile>
+    <ClCompile Include="RectangleBuilder.cpp">
+      <Filter>Source Files\Builder</Filter>
+    </ClCompile>
+    <ClCompile Include="TriangleBuilder.cpp">
+      <Filter>Source Files\Builder</Filter>
+    </ClCompile>
+    <ClCompile Include="AddCircleState.cpp">
+      <Filter>Source Files\State</Filter>
+    </ClCompile>
+    <ClCompile Include="AddRectangleState.cpp">
+      <Filter>Source Files\State</Filter>
+    </ClCompile>
+    <ClCompile Include="AddTriangleState.cpp">
+      <Filter>Source Files\State</Filter>
+    </ClCompile>
+    <ClCompile Include="ChangeFillColorState.cpp">
+      <Filter>Source Files\State</Filter>
+    </ClCompile>
+    <ClCompile Include="ChangeOutlineColorState.cpp">
+      <Filter>Source Files\State</Filter>
+    </ClCompile>
+    <ClCompile Include="ChangeOutlineThicknessState.cpp">
+      <Filter>Source Files\State</Filter>
+    </ClCompile>
+    <ClCompile Include="DragAndDropState.cpp">
+      <Filter>Source Files\State</Filter>
+    </ClCompile>
+    <ClCompile Include="SaveBinaryStrategy.cpp">
+      <Filter>Source Files\SaveStrategy</Filter>
+    </ClCompile>
+    <ClCompile Include="SaveTxtStrategy.cpp">
+      <Filter>Source Files\SaveStrategy</Filter>
+    </ClCompile>
+    <ClCompile Include="Editor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Circle.cpp">
+      <Filter>Source Files\Shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="Rectangle.cpp">
+      <Filter>Source Files\Shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="OutlineDecorator.cpp">
+      <Filter>Source Files\Shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="CompoundShape.cpp">
+      <Filter>Source Files\Shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="Triangle.cpp">
+      <Filter>Source Files\Shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="FileShapeReader.cpp">
+      <Filter>Source Files\TemplateMethod</Filter>
+    </ClCompile>
+    <ClCompile Include="BinaryReader.cpp">
+      <Filter>Source Files\TemplateMethod</Filter>
+    </ClCompile>
+    <ClCompile Include="TxtReader.cpp">
+      <Filter>Source Files\TemplateMethod</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Source Files\Toolbar\Button</Filter>
+    </ClCompile>
+    <ClCompile Include="Toolbar.cpp">
+      <Filter>Source Files\Toolbar</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -158,9 +239,6 @@
     <ClInclude Include="DragAndDropState.h">
       <Filter>Header Files\State</Filter>
     </ClInclude>
-    <ClInclude Include="ICanvas.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="AddTriangleState.h">
       <Filter>Header Files\State</Filter>
     </ClInclude>
@@ -172,6 +250,15 @@
     </ClInclude>
     <ClInclude Include="ChangeOutlineThicknessState.h">
       <Filter>Header Files\State</Filter>
+    </ClInclude>
+    <ClInclude Include="CanvasMemento.h">
+      <Filter>Header Files\Memento</Filter>
+    </ClInclude>
+    <ClInclude Include="CanvasHistory.h">
+      <Filter>Header Files\Memento</Filter>
+    </ClInclude>
+    <ClInclude Include="ICanvas.h">
+      <Filter>Header Files\Canvas</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
