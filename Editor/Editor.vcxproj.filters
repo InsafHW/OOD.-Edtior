@@ -70,6 +70,18 @@
     <Filter Include="Source Files\Toolbar\Button">
       <UniqueIdentifier>{2faa3d1e-0be4-4d31-9a1c-05c01e7aabe7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Command">
+      <UniqueIdentifier>{465ba2f7-75c7-4fcd-9fb6-f36b694ce419}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Command">
+      <UniqueIdentifier>{6bc42ba9-cd80-44c3-a8d6-b4d4a8b54319}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Decorator">
+      <UniqueIdentifier>{d64ec858-721c-4efe-9b96-8b67fec8a216}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Decorator">
+      <UniqueIdentifier>{80eab954-69b6-4aa7-ad88-70ffd7d928f3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ShapeReader.cpp">
@@ -132,9 +144,6 @@
     <ClCompile Include="Rectangle.cpp">
       <Filter>Source Files\Shapes</Filter>
     </ClCompile>
-    <ClCompile Include="OutlineDecorator.cpp">
-      <Filter>Source Files\Shapes</Filter>
-    </ClCompile>
     <ClCompile Include="CompoundShape.cpp">
       <Filter>Source Files\Shapes</Filter>
     </ClCompile>
@@ -155,6 +164,39 @@
     </ClCompile>
     <ClCompile Include="Toolbar.cpp">
       <Filter>Source Files\Toolbar</Filter>
+    </ClCompile>
+    <ClCompile Include="ReadFromBinCommand.cpp">
+      <Filter>Source Files\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="ReadFromTxtCommand.cpp">
+      <Filter>Source Files\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="ChangeToAddRectangleStateCommand.cpp">
+      <Filter>Source Files\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="ChangeToAddTriangleStateCommand.cpp">
+      <Filter>Source Files\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="ChangeToAddCircleStateCommand.cpp">
+      <Filter>Source Files\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="ChangeToDragAndDropStateCommand.cpp">
+      <Filter>Source Files\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="ChangeToFillColorStateCommand.cpp">
+      <Filter>Source Files\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="ChangeToOutlineColorStateCommand.cpp">
+      <Filter>Source Files\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="ChangeToOutlineThicknessStateCommand.cpp">
+      <Filter>Source Files\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="Decorator.cpp">
+      <Filter>Source Files\Decorator</Filter>
+    </ClCompile>
+    <ClCompile Include="OutlineDecorator.cpp">
+      <Filter>Source Files\Decorator</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -186,9 +228,6 @@
       <Filter>Header Files\Shapes</Filter>
     </ClInclude>
     <ClInclude Include="CompoundShape.h">
-      <Filter>Header Files\Shapes</Filter>
-    </ClInclude>
-    <ClInclude Include="OutlineDecorator.h">
       <Filter>Header Files\Shapes</Filter>
     </ClInclude>
     <ClInclude Include="Triangle.h">
@@ -259,6 +298,42 @@
     </ClInclude>
     <ClInclude Include="ICanvas.h">
       <Filter>Header Files\Canvas</Filter>
+    </ClInclude>
+    <ClInclude Include="ICommand.h">
+      <Filter>Header Files\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="ReadFromBinCommand.h">
+      <Filter>Header Files\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="ReadFromTxtCommand.h">
+      <Filter>Header Files\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="ChangeToAddRectangleStateCommand.h">
+      <Filter>Header Files\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="ChangeToAddTriangleStateCommand.h">
+      <Filter>Header Files\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="ChangeToAddCircleStateCommand.h">
+      <Filter>Header Files\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="ChangeToDragAndDropStateCommand.h">
+      <Filter>Header Files\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="ChangeToFillColorStateCommand.h">
+      <Filter>Header Files\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="ChangeToOutlineColorStateCommand.h">
+      <Filter>Header Files\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="ChangeToOutlineThicknessStateCommand.h">
+      <Filter>Header Files\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="Decorator.h">
+      <Filter>Header Files\Decorator</Filter>
+    </ClInclude>
+    <ClInclude Include="OutlineDecorator.h">
+      <Filter>Header Files\Decorator</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

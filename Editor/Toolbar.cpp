@@ -79,13 +79,13 @@ void Toolbar::PollEventAndUpdate(sf::Event event, sf::RenderWindow* window)
 			{
 				if ((*it).GetButtonType() == ButtonType::READ_BIN)
 				{
-					m_canvas->ReadFromBin();
-					std::cout << "READING BIN..";
+					SetCommand(new ReadFromBinCommand(m_canvas));
+					m_command->Execute();
 				}
 				else if ((*it).GetButtonType() == ButtonType::READ_TXT)
 				{
-					m_canvas->ReadFromTxt();
-					std::cout << "READING TXT..";
+					SetCommand(new ReadFromTxtCommand(m_canvas));
+					m_command->Execute();
 				}
 				else
 				{
@@ -102,30 +102,37 @@ void Toolbar::PollEventAndUpdate(sf::Event event, sf::RenderWindow* window)
 					switch ((*it).GetButtonType())
 					{
 					case ButtonType::CREATE_RECTANGLE:
-						m_canvas->SetAddRectangleState();
+						SetCommand(new ChangeToAddRectangleStateCommand(m_canvas));
+						m_command->Execute();
 						break;
 					case ButtonType::CREATE_TRIANGLE:
-						m_canvas->SetAddTriangleState();
+						SetCommand(new ChangeToAddTriangleStateCommand(m_canvas));
+						m_command->Execute();
 						break;
 					case ButtonType::CREATE_CIRCLE:
-						m_canvas->SetAddCircleState();
+						SetCommand(new ChangeToAddCircleStateCommand(m_canvas));
+						m_command->Execute();
 						break;
 					case ButtonType::DRAG_AND_DROP:
+						SetCommand(new ChangeToDragAndDropStateCommand(m_canvas));
 						m_canvas->SetDragAndDropState();
 						break;
 					case ButtonType::CHAGNE_FILL_COLOR_TYPE:
 						m_showColors = true;
 						m_isFill = true;
-						m_canvas->SetChangeFillColorState(sf::Color::Color(138, 43, 226));
+						SetCommand(new ChangeToFillColorStateCommand(m_canvas, sf::Color(138, 43, 226)));
+						m_command->Execute();
 						break;
 					case ButtonType::CHANGE_OUTLINE_COLOR_TYPE:
 						m_showColors = true;
 						m_isOutline = true;
-						m_canvas->SetChangeOutlineColorState(sf::Color::Color(138, 43, 226));
+						SetCommand(new ChangeToOutlineColorStateCommand(m_canvas, sf::Color(138, 43, 226)));
+						m_command->Execute();
 						break;
 					case ButtonType::CHANGE_OUTLINE_THICKNESS_TYPE:
 						m_showThicknesses = true;
-						m_canvas->SetChangeOutlineThicknessState(1);
+						SetCommand(new ChangeToOutlineThicknessStateCommand(m_canvas, 1));
+						m_command->Execute();
 						break;
 					}
 				}
@@ -144,31 +151,37 @@ void Toolbar::PollEventAndUpdate(sf::Event event, sf::RenderWindow* window)
 					case ButtonType::PURPLE_COLOR:
 						if (m_isFill)
 						{
-							m_canvas->SetChangeFillColorState(sf::Color::Color(138, 43, 226));
+							SetCommand(new ChangeToFillColorStateCommand(m_canvas, sf::Color(138, 43, 226)));
+							m_command->Execute();
 						}
 						else if (m_isOutline)
 						{
-							m_canvas->SetChangeOutlineColorState(sf::Color::Color(138, 43, 226));
+							SetCommand(new ChangeToOutlineColorStateCommand(m_canvas, sf::Color(138, 43, 226)));
+							m_command->Execute();
 						}
 						break;
 					case ButtonType::ORANGE_COLOR:
 						if (m_isFill)
 						{
-							m_canvas->SetChangeFillColorState(sf::Color::Color(255, 165, 0));
+							SetCommand(new ChangeToFillColorStateCommand(m_canvas, sf::Color::Color(255, 165, 0)));
+							m_command->Execute();
 						}
 						else if (m_isOutline)
 						{
-							m_canvas->SetChangeOutlineColorState(sf::Color::Color(255, 165, 0));
+							SetCommand(new ChangeToOutlineColorStateCommand(m_canvas, sf::Color(255, 165, 0)));
+							m_command->Execute();
 						}
 						break;
 					case ButtonType::YELLOW_COLOR:
 						if (m_isFill)
 						{
-							m_canvas->SetChangeFillColorState(sf::Color::Yellow);
+							SetCommand(new ChangeToFillColorStateCommand(m_canvas, sf::Color::Yellow));
+							m_command->Execute();
 						}
 						else if (m_isOutline)
 						{
-							m_canvas->SetChangeOutlineColorState(sf::Color::Yellow);
+							SetCommand(new ChangeToOutlineColorStateCommand(m_canvas, sf::Color::Yellow));
+							m_command->Execute();
 						}
 						break;
 					}
@@ -184,23 +197,30 @@ void Toolbar::PollEventAndUpdate(sf::Event event, sf::RenderWindow* window)
 					switch ((*it).GetButtonType())
 					{
 					case ButtonType::THICKNESS_ONE:
-						m_canvas->SetChangeOutlineThicknessState(1);
+						SetCommand(new ChangeToOutlineThicknessStateCommand(m_canvas, 1));
+						m_command->Execute();
 						break;
 					case ButtonType::THICKNESS_TWO:
-						m_canvas->SetChangeOutlineThicknessState(2);
+						SetCommand(new ChangeToOutlineThicknessStateCommand(m_canvas, 2));
+						m_command->Execute();
 						break;
 					case ButtonType::THICKNESS_THREE:
-						m_canvas->SetChangeOutlineThicknessState(3);
+						SetCommand(new ChangeToOutlineThicknessStateCommand(m_canvas, 3));
+						m_command->Execute();
 						break;
 					}
 				}
 			}
 		}
-
 		break;
 	default:
 		break;
 	}
+}
+
+void Toolbar::SetCommand(ICommand* command)
+{
+	m_command = command;
 }
 
 void Toolbar::ResetExtra()
