@@ -8,27 +8,12 @@
 class FilesShapeReader
 {
 public:
-	std::list<CompoundShape*> GetShapes() const
-	{
-		this->StartReading();
-		PrintReadingFileTypeHook();
-		EndlineHook();
-		return ReadShapes();
-	};
-
+	std::list<CompoundShape*> GetShapes() const;
 protected:
-	void StartReading() const
-	{
-		std::cout << "Reading... ";
-	}
-
+	void StartReading() const;
 	virtual std::list<CompoundShape*> ReadShapes() const = 0;
 	virtual void PrintReadingFileTypeHook() const {}
-	virtual void EndlineHook() const
-	{
-		std::cout << std::endl;
-	};
-
+	virtual void EndlineHook() const;
 private:
 	std::unique_ptr<Builder> m_builder;
 };

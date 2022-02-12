@@ -1,269 +1,24 @@
 #include "Canvas.h"
 
-void Canvas::DragAndDropPollEvent(sf::Event event, sf::RenderWindow* window)
+Canvas::Canvas(std::list<CompoundShape*> shapes)
+	: m_shapes(shapes),
+	m_state(&m_dragAndDropState),
+	m_addCircleState(*this),
+	m_addRectangleState(*this),
+	m_dragAndDropState(*this),
+	m_addTriangleState(*this),
+	m_changeFillColorState(*this),
+	m_changeOutlineColorState(*this),
+	m_changeOutlineThicknessState(*this)
 {
-	switch (event.type)
-	{
-	case sf::Event::KeyPressed:
-		if (m_ctrlPressed && event.key.code == sf::Keyboard::Z)
-		{
-			RestoreState(m_history.Pop());
-		};
-		if (event.key.code == sf::Keyboard::LShift)
-		{
-			m_lShiftPressed = true;
-		}
-		if (event.key.code == sf::Keyboard::LControl)
-		{
-			m_ctrlPressed = true;
-		};
-		if (m_ctrlPressed && event.key.code == sf::Keyboard::G && m_selectedShapes.size() > 1)
-		{
-			CompoundShape* comp = new CompoundShape();
-			for (auto it = m_selectedShapes.begin(); it != m_selectedShapes.end(); it++)
-			{
-				auto shapes = (*it)->GetShapes();
-				for (auto innerIt = shapes.begin(); innerIt != shapes.end(); innerIt++)
-				{
-					comp->Add(*innerIt);
-					(*innerIt)->UnSelect();
-				}
-				m_shapes.remove(*it);
-				delete* it;
-			}
-			m_shapes.push_back(comp);
-			m_selectedShapes.clear();
-			m_selectedShapes.push_back(comp);
-			m_draggingShapeIdx = m_shapes.size() - 1;
-		}
-		if (m_ctrlPressed && event.key.code == sf::Keyboard::U)
-		{
-			auto compound = *std::next(m_shapes.begin(), m_draggingShapeIdx);
-			auto shapes = compound->GetShapes();
-			if (shapes.size() > 1)
-			{
-				for (auto it = shapes.begin(); it != shapes.end(); it++)
-				{
-					CompoundShape* soloShape = new CompoundShape();
-					soloShape->Add(*it);
-					soloShape->Select();
-					m_shapes.push_back(soloShape);
-					m_selectedShapes.push_back(soloShape);
-				}
-				m_selectedShapes.remove(compound);
-				m_shapes.remove(compound);
-				delete compound;
-			}
-		};
-		if (m_ctrlPressed && event.key.code == sf::Keyboard::S)
-		{
-			SetSaveStrategy(std::make_unique<SaveBinaryStrategy>());
-			SaveIntoFile();
-		};
-		if (m_ctrlPressed && event.key.code == sf::Keyboard::B)
-		{
-			SetSaveStrategy(std::make_unique<SaveTxtStrategy>());
-			SaveIntoFile();
-		};
-		break;
-	case sf::Event::KeyReleased:
-		if (event.key.code == sf::Keyboard::LShift)
-		{
-			m_lShiftPressed = false;
-		};
-		if (event.key.code == sf::Keyboard::LControl)
-		{
-			m_ctrlPressed = false;
-		}
-		break;
-	case sf::Event::MouseButtonPressed:
-		if (event.mouseButton.button == sf::Mouse::Left)
-		{
-			m_mouseClicked = true;
-			int id = 0;
-			for (auto it = m_shapes.begin(); it != m_shapes.end(); it++)
-			{
-				if ((*it)->GetGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y))
-				{
-					if (m_lShiftPressed)
-					{
-						if ((*it)->IsSelected())
-						{
-							(*it)->Unselect();
-							m_selectedShapes.remove(*it);
-						}
-						else
-						{
-							(*it)->Select();
-							m_selectedShapes.push_back(*it);
-						}
-					}
-					else
-					{
-						for (auto it = m_selectedShapes.begin(); it != m_selectedShapes.end(); it++)
-						{
-							(*it)->Unselect();
-						}
-						(*it)->Select();
-						m_selectedShapes.clear();
-						m_selectedShapes.push_back(*it);
-
-					}
-					m_draggingShapeIdx = id;
-					m_draggingShape = true;
-					m_mouseShapeOffset.x = event.mouseButton.x - (*it)->GetGlobalBounds().left - (*it)->GetOrigin().x;
-					m_mouseShapeOffset.y = event.mouseButton.y - (*it)->GetGlobalBounds().top - (*it)->GetOrigin().y;
-					break;
-				}
-				id++;
-			}
-		};
-		break;
-	case sf::Event::MouseButtonReleased:
-		if (event.mouseButton.button == sf::Mouse::Left)
-		{
-			m_mouseClicked = false;
-			m_draggingShape = false;
-		};
-		break;
-	case sf::Event::MouseMoved:
-		m_mouseX = event.mouseMove.x;
-		m_mouseY = event.mouseMove.y;
-		break;
-	default:
-		break;
-	}
+	PushInHistory();
+	SetSaveStrategy(std::make_unique<SaveBinaryStrategy>());
 }
 
-void Canvas::AddRectanglePollEvent(sf::Event event, sf::RenderWindow* window)
+void Canvas::PollEvents(sf::Event event, sf::RenderWindow* window)
 {
-	switch (event.type)
-	{
-	case sf::Event::MouseButtonPressed:
-		if (event.mouseButton.button == sf::Mouse::Left && event.mouseButton.y > 30)
-		{
-			CompoundShape* shape = new CompoundShape();
-			m_history.Push(SaveState());
-			shape->Add(new OutlineDecorator(new Rectangle(event.mouseButton.x, event.mouseButton.y, event.mouseButton.x + 100, event.mouseButton.y + 100)));
-			m_shapes.push_back(shape);
-		};
-		break;
-	default:
-		break;
-	}
-}
-
-void Canvas::AddTrianglePollEvent(sf::Event event, sf::RenderWindow* window)
-{
-	switch (event.type)
-	{
-	case sf::Event::MouseButtonPressed:
-		if (event.mouseButton.button == sf::Mouse::Left && event.mouseButton.y > 30)
-		{
-			CompoundShape* shape = new CompoundShape();
-			m_history.Push(SaveState());
-			shape->Add(new OutlineDecorator(new Triangle(event.mouseButton.x, event.mouseButton.y + 100, event.mouseButton.x + 100, event.mouseButton.y, event.mouseButton.x + 200, event.mouseButton.y + 100)));
-			m_shapes.push_back(shape);
-		};
-		break;
-	default:
-		break;
-	}
-}
-
-void Canvas::AddCirclePollEvent(sf::Event event, sf::RenderWindow* window)
-{
-	switch (event.type)
-	{
-	case sf::Event::MouseButtonPressed:
-		if (event.mouseButton.button == sf::Mouse::Left && event.mouseButton.y > 30)
-		{
-			CompoundShape* shape = new CompoundShape();
-			m_history.Push(SaveState());
-			shape->Add(new OutlineDecorator(new Circle(event.mouseButton.x, event.mouseButton.y, 100)));
-			m_shapes.push_back(shape);
-		};
-		break;
-	default:
-		break;
-	}
-}
-
-void Canvas::ChangeFillColorPollEvent(sf::Event event, sf::RenderWindow* window)
-{
-
-	switch (event.type)
-	{
-	case sf::Event::MouseButtonPressed:
-		if (event.mouseButton.button == sf::Mouse::Left)
-		{
-			for (auto it = m_shapes.begin(); it != m_shapes.end(); it++)
-			{
-				if ((*it)->GetGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y))
-				{
-					m_history.Push(SaveState());
-
-					std::cout << "ChangeFillColorPollEvent\n";
-
-					(*it)->ChangeFillColor(m_color);
-					break;
-				}
-			}
-		};
-		break;
-	default:
-		break;
-	}
-}
-
-void Canvas::ChangeOutlineColorPollEvent(sf::Event event, sf::RenderWindow* window)
-{
-
-	switch (event.type)
-	{
-	case sf::Event::MouseButtonPressed:
-		if (event.mouseButton.button == sf::Mouse::Left)
-		{
-			for (auto it = m_shapes.begin(); it != m_shapes.end(); it++)
-			{
-				if ((*it)->GetGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y))
-				{
-					std::cout << "ChangeFillColorPollEvent\n";
-
-					(*it)->ChangeOutlineColor(m_color);
-					break;
-				}
-			}
-		};
-		break;
-	default:
-		break;
-	}
-}
-
-void Canvas::ChangeOutlineThicknessPollEvent(sf::Event event, sf::RenderWindow* window)
-{
-	switch (event.type)
-	{
-	case sf::Event::MouseButtonPressed:
-		if (event.mouseButton.button == sf::Mouse::Left)
-		{
-			for (auto it = m_shapes.begin(); it != m_shapes.end(); it++)
-			{
-				if ((*it)->GetGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y))
-				{
-					std::cout << "ChangeOutlineThicknessPollEvent\n";
-
-					(*it)->ChangeOutlineThickness(m_size);
-					break;
-				}
-			}
-		};
-		break;
-	default:
-		break;
-	}
-}
+	m_state->PollEvents(event, window);
+};
 
 void Canvas::Update()
 {
@@ -287,3 +42,211 @@ void Canvas::Draw(sf::RenderWindow* window)
 		(*it)->Draw(window);
 	}
 }
+
+void Canvas::AddShape(CompoundShape* shape)
+{
+	m_shapes.push_back(shape);
+}
+
+void Canvas::RemoveShape(CompoundShape* shape)
+{
+	m_shapes.remove(shape);
+}
+
+void Canvas::AddSelectedShape(CompoundShape* shape)
+{
+	m_selectedShapes.push_back(shape);
+}
+
+void Canvas::RemoveSelectedShape(CompoundShape* shape)
+{
+	m_selectedShapes.remove(shape);
+};
+
+sf::Color Canvas::GetSelectedColor()
+{
+	return m_color;
+};
+
+int Canvas::GetSelectedSize()
+{
+	return m_size;
+}
+
+std::list<CompoundShape*>& Canvas::GetShapes()
+{
+	return m_shapes;
+}
+
+std::list<CompoundShape*>& Canvas::GetSelectedShapes()
+{
+	return m_selectedShapes;
+}
+
+bool Canvas::IsMouseClicked()
+{
+	return m_mouseClicked;
+}
+
+bool Canvas::IsDraggingShape()
+{
+	return m_draggingShape;
+}
+
+bool Canvas::IsLShiftPressed()
+{
+	return m_lShiftPressed;
+}
+
+bool Canvas::IsCtrlPressed()
+{
+	return m_ctrlPressed;
+}
+
+sf::Vector2f Canvas::GetMouseShapeOffset()
+{
+	return m_mouseShapeOffset;
+}
+int Canvas::GetMouseX()
+{
+	return m_mouseX;
+}
+
+int Canvas::GetMouseY()
+{
+	return m_mouseY;
+}
+
+int Canvas::GetDraggingShapeIdx()
+{
+	return m_draggingShapeIdx;
+}
+
+void Canvas::SetIsMouseClicked(bool clicked)
+{
+	m_mouseClicked = clicked;
+}
+
+void Canvas::SetIsDragginShape(bool dragging)
+{
+	m_draggingShape = dragging;
+}
+
+void Canvas::SetIsLShiftPressed(bool pressed)
+{
+	m_lShiftPressed = pressed;
+}
+
+void Canvas::SetIsCtrlPressed(bool pressed)
+{
+	m_ctrlPressed = pressed;
+}
+
+void Canvas::SetMouseShapeOffset(sf::Vector2f offset)
+{
+	m_mouseShapeOffset = offset;
+}
+
+void Canvas::SetMouseX(int x)
+{
+	m_mouseX = x;
+}
+
+void Canvas::SetMouseY(int y)
+{
+	m_mouseY = y;
+}
+
+void Canvas::SetDraggingShapeIdx(int idx)
+{
+	m_draggingShapeIdx = idx;
+}
+
+void Canvas::SetDragAndDropState()
+{
+	m_state = &m_dragAndDropState;
+}
+
+void Canvas::SetAddRectangleState()
+{
+	m_state = &m_addRectangleState;
+}
+
+void Canvas::SetAddCircleState()
+{
+	m_state = &m_addCircleState;
+}
+
+void Canvas::SetAddTriangleState()
+{
+	m_state = &m_addTriangleState;
+}
+
+void Canvas::SetChangeFillColorState(sf::Color color)
+{
+	m_state = &m_changeFillColorState;
+	m_color = color;
+}
+
+void Canvas::SetChangeOutlineColorState(sf::Color color)
+{
+	m_state = &m_changeOutlineColorState;
+	m_color = color;
+}
+
+void Canvas::SetChangeOutlineThicknessState(int size)
+{
+	m_state = &m_changeOutlineThicknessState;
+	m_size = size;
+}
+
+CanvasMemento Canvas::SaveState()
+{
+	std::cout << "Saving state..." << std::endl;
+	return CanvasMemento(m_shapes, m_selectedShapes);
+}
+
+void Canvas::RestoreState()
+{
+	CanvasMemento memento = m_history.Pop();
+	m_shapes.clear();
+	m_selectedShapes.clear();
+	for (auto it = memento.m_shapes.begin(); it != memento.m_shapes.end(); it++)
+	{
+		(*it).shape->ChangeFillColor((*it).fillColor);
+		m_shapes.push_back((*it).shape);
+	}
+
+	m_selectedShapes = memento.m_selectedShapes;
+}
+
+void Canvas::PushInHistory()
+{
+	m_history.Push(SaveState());
+}
+
+void Canvas::SaveIntoFile()
+{
+	std::cout << "Saving into file..." << std::endl;
+	m_saveStrategy->SaveFile(m_shapes);
+}
+
+void Canvas::SetSaveStrategy(std::unique_ptr<SaveStrategy>&& saveBehavior)
+{
+	m_saveStrategy = std::move(saveBehavior);
+}
+
+void Canvas::ReadFromTxt()
+{
+	m_shapes = m_txtReader.GetShapes();
+}
+
+void Canvas::ReadFromBin()
+{
+	m_shapes = m_binaryReader.GetShapes();
+};
+
+void Canvas::ClearAllSelectedShapes()
+{
+	m_selectedShapes.clear();
+};
